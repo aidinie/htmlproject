@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container img{
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            float: left;
+        }
+        #container{
+            width: 660px;
+            margin:  0 auto;
+        }
+        #container img.collide{
+            border: dotted 2px red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img src="../复习/拖拽的照片墙/image/1.jpg">
+    <img src="../复习/拖拽的照片墙/image/2.jpg">
+    <img src="../复习/拖拽的照片墙/image/3.jpg">
+    <img src="../复习/拖拽的照片墙/image/4.jpg">
+    <img src="../复习/拖拽的照片墙/image/5.jpg">
+    <img src="../复习/拖拽的照片墙/image/6.jpg">
+    <img src="../复习/拖拽的照片墙/image/7.jpg">
+    <img src="../复习/拖拽的照片墙/image/8.jpg">
+    <img src="../复习/拖拽的照片墙/image/9.jpg">
+
+</div>
+<script src="../复习/拖拽的照片墙/jslib.js"></script>
+<script>
+    var oContainer=document.getElementById("container");
+    var aImg=oContainer.getElementsByTagName("img");
+    var zIndex=1;
+    var collide=[];
+    var index=-1;
+    var nearElem=null;
+    for(var i=aImg.length-1;i>=0;i--){
+        aImg[i].style.left=aImg[i].offsetLeft+"px";
+        aImg[i].style.top=aImg[i].offsetTop+"px";
+        aImg[i].style.position="absolute";
+        aImg[i].style.margin=0;
+        aImg[i].pos={
+            left:aImg[i].offsetLeft,
+            top:aImg[i].offsetTop
+        }
+        drag(aImg[i]);
+    }
+    function drag(elem){
+        elem.onmousedown=function(e){
+            e=e ||window.event;
+            var iDisX= e.clientX -elem.offsetLeft;
+            var iDisY= e.clientY -elem.offsetTop;
+            elem.style.zIndex=zIndex++;
+            document.onmousemove=function(e){
+                e=e || window.event;
+                elem.style.left= e.clientX-iDisX +"px";
+                elem.style.top= e.clientY-iDisY +"px";
+                collide=[];
+                for(var i=0;i<aImg.length;i++){
+                    aImg[i].className="";
+                    if(elem==aImg[i]){
+                        continue;
+                    }
+                    var check=checkCollide(elem,aImg[i]);
+                    if(check){
+                        collide.push(aImg[i]);
+                    }
+                }
+                if(collide.length>0){
+                   nearElem= nearest(elem);
+                    nearElem.className="collide";
+                }else{
+                    nearElem=null;
+                }
+                return false;
+            };
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                if(nearElem){
+                    animate(elem,nearElem.pos);
+                    animate(nearElem,elem.pos);
+                    var pos=elem.pos;
+                    elem.pos=nearElem.pos;
+                    nearElem.pos=pos;
+                    nearElem.className="";
+                }
+                else{
+                    animate(elem,elem.pos);
+                }
+            }
+        }
+    }
+    function checkCollide(elem,target){
+        var elemL=elem.offsetLeft;
+        var elemR=elem.offsetLeft+elem.offsetWidth;
+        var elemT=elem.offsetTop;
+        var elemB=elem.offsetTop +elem.offsetHeight;
+        var targetL=target.offsetLeft;
+        var targetR=target.offsetLeft+target.offsetWidth;
+        var targetT=target.offsetTop;
+        var targetB=target.offsetTop +target.offsetHeight;
+        if(elemL>targetR || elemR<targetL || elemT>targetB || elemB<targetT){
+            return false
+        }
+        else{
+            return true;
+        }
+    }
+    function nearest(elem){
+        var minDis=999999;
+        var dis;
+        for(var i=0;i<collide.length;i++){
+            x=elem.offsetLeft-collide[i].offsetLeft;
+            y=elem.offsetTop-collide[i].offsetTop;
+            dis=Math.sqrt(x*x +y*y);
+            if(dis<minDis){
+                minDis=dis;
+                index=i;
+            }
+        }
+        return collide[index];
+    }
+</script>
+</body>
+</html>
