@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>div块随意拖动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<h1>hhhhhhhhhhhhhhhhhhhh</h1>
+<div id="div1">
+
+</div>
+<script>
+    (function(){
+        var oDiv=document.getElementById("div1");
+       oDiv.onmousedown=function(e){
+            e=e||window.event;
+            var disX= e.clientX-oDiv.offsetLeft;
+            var disY= e.clientY-oDiv.offsetTop;
+            document.onmousemove=function(e){
+                e=e||window.event;
+                var  left= e.clientX-disX;
+                var top= e.clientY-disY;
+                oDiv.style.left=left+"px";
+                oDiv.style.top=top+"px";
+                return false;
+            };
+           oDiv.onmouseup=function(){
+                document.onmousemove=null;
+            }
+        }
+    })()
+</script>
+</body>
+</html>
