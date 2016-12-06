@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1.	定一个函数test(n,m)  n>1,m>n,返回n到m之间的所有回文数。
+    // （回文数是正读和反读相同的数，例如 121，1001,…）。
+
+    function test(n,m){
+          var arr=[];
+        for(var i=n;i<m;i++){
+            var str= i.toString().split("").reverse().join("");
+            if(i==str){
+                arr.push(i);
+            }
+        }
+        console.log(arr);
+    }
+   test(100,1000);
+</script>
+</body>
+</html>
