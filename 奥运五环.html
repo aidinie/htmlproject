@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .circle{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: solid 10px;
+            position: absolute;
+        }
+        .circle::after{
+            content: "";
+            display: block;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: solid 10px;
+            position: relative;
+            left: -10px;
+            top: -10px;
+
+        }
+        .blue{
+            border-color: blue;
+            left: 0px;
+            top: 0px;
+
+        }
+        .blue::after{
+            border-color: blue;
+            z-index: 1;
+            border-bottom-color: transparent;
+        }
+
+        .yellow{
+            border-color: yellow;
+            left: 230px;
+            top: 0px;
+        }
+        .yellow::after{
+            border-color: yellow;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .red{
+            border-color: red;
+            left: 460px;
+            top: 0px;
+        }
+        .red::after{
+            border-color: red;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .green{
+            border-color: green;
+            left: 120px;
+            top: 120px;
+        }
+        .green::after{
+            border-color: green;
+        }
+        .black{
+            border-color: black;
+            left: 350px;
+            top: 120px;
+        }
+        .black::after{
+            border-color: black;
+            z-index: 1;
+            border-right-color: transparent;
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="circle blue"></div>
+<div class="circle yellow"></div>
+<div class="circle red"></div>
+<div class="circle green"></div>
+<div class="circle black"></div>
+</body>
+</html>
