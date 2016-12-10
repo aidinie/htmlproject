@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多级菜单</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu .main-menu{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: gray;
+            margin-right: 5px;
+        }
+
+        #menu .main-menu a{
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+        }
+        #menu .sub-menu{
+            background: #ccc;
+            display: none;
+        }
+        #menu .sub-menu li{
+            border-bottom: 1px dashed #000;
+        }
+
+        #menu .sub-menu a{
+            text-align: left;
+            line-height: 30px;
+            text-indent: 5px;
+
+        }
+        /*权重值：id 100 ,class 10 ,tag 1*/
+        #menu .main-menu:hover .sub-menu{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="#">link1</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink1</a></li>
+                <li><a href="#">sublink2</a></li>
+                <li><a href="#">sublink3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#">link2</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink1</a></li>
+                <li><a href="#">sublink2</a></li>
+                <li><a href="#">sublink3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#">link3</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink1</a></li>
+                <li><a href="#">sublink2</a></li>
+                <li><a href="#">sublink3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
