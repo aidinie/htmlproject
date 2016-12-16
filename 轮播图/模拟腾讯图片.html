@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            height: 400px;
+            width: 680px;
+            background-color: red;
+            position: relative;
+            margin:  100px auto;
+
+        }
+        /*#content{*/
+            /*height: 400px;*/
+            /*/!*width: 2750px;*!/*/
+            /*position: absolute;*/
+            /*left: 0px;*/
+            /*top: 0px;*/
+            /*width: 680px;*/
+
+        /*}*/
+        #content img{
+            float: left;
+            display: none;
+
+        }
+        #img li{
+            float: left;
+            margin-left: 5px;
+        }
+        #img{
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+        }
+        #span1 span{
+               display: inline-block;
+               height: 20px;
+               width: 20px;
+               background-color: black;
+               color: white;
+               text-align: center;
+               line-height: 20px;
+            cursor: pointer;
+           }
+        #span2 span{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #span1{
+            position: absolute;
+            bottom: 30px;
+            right: 200px;
+
+        }
+        #span2{
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+        }
+       #content .selected {
+           display: block;
+       }
+       /*#img li{*/
+           /*height: 30px;*/
+           /*width: 30px;*/
+           /*text-align: center;*/
+           /*line-height: 30px;*/
+       /*}*/
+        #img .selected{
+
+            background-color:red;
+            height: 32px;
+            width: 32px;
+            text-align: center;
+            line-height: 40px;
+            border: dashed;
+        }
+    </style>
+</head>
+<body>
+  <div id="container">
+      <div id="content">
+          <img class="selected" src="image/book.jpg" width="680px" height="400px">
+          <img src="image/cloth.jpg" width="680px" height="400px">
+          <img src="image/computer.jpg" width="680px" height="400px">
+          <img src="image/sport.jpg" width="680px" height="400px">
+      </div>
+      <ul id="img">
+          <li  class="selected"><img src="image/book.jpg" width="30px" height="30px"></li>
+          <li><img src="image/cloth.jpg" width="30px" height="30px"></li>
+          <li><img src="image/computer.jpg" width="30px" height="30px"></li>
+          <li><img src="image/sport.jpg" width="30px" height="30px"></li>
+      </ul>
+      <div id="span1">
+          <span id="prev">&lt;</span>
+
+      </div>
+      <div id="span2">
+          <span id="next">&gt;</span>
+      </div>
+
+  </div>
+<script>
+    var oContent=document.getElementById("content");
+    var oContainer=document.getElementById("container");
+
+    var aImg=oContent.getElementsByTagName("img");
+    var aLi=oContainer.getElementsByTagName("li");
+    var oNext=document.getElementById("next");
+    var oPrev=document.getElementById("prev");
+    var iNow=0;
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmousemove=function(){
+            change(this.index);
+            iNow=this.index;
+        }
+    }
+    function change(index){
+        for(var j=0;j<aLi.length;j++){
+            aLi[j].className="";
+            aImg[j].className="";
+        }
+        aLi[index].className="selected";
+
+        aImg[index].className="selected";
+    }
+    oNext.onclick=function(){
+        iNow++;
+       iNow=iNow%aLi.length;
+        change(iNow);
+    };
+    oPrev.onclick=function(){
+        iNow--;
+        if(iNow==-1){
+            iNow=aLi.length-1;
+        }
+        change(iNow);
+    };
+    var timer=setInterval(function(){
+        oNext.onclick();
+    },2000);
+    oContainer.onmousemove=function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout=function(){
+        timer=setInterval(function(){
+            oNext.onclick();
+        },2000)
+    };
+</script>
+</body>
+</html>
