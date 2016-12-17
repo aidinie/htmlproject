@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用children选择子元素实现多级菜单</title>
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        ul{
+            list-style: none;
+
+        }
+        a {
+            text-decoration: none;
+
+
+        }
+        #menu .main-menu  {
+            float: left;
+            height: 30px;
+            width: 100px;
+
+            background-color: gray;
+            margin-right: 5px;
+        }
+        #menu .main-menu a{
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+
+        }
+        #menu .sub-menu li{
+            height: 30px;
+            width: 100px;
+            background-color:darkgrey;
+            margin-right: 5px;
+
+            border-bottom: 1px dashed #000000;
+        }
+        #menu ul{
+            display: none;
+        }
+        #menu .sub-menu a{
+            text-align:left;
+            text-indent: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="#">link1</a>
+        <ul class="sub-menu">
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+        </ul>
+
+    </li>
+    <li class="main-menu">
+        <a href="#">link2</a>
+        <ul class="sub-menu">
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+        </ul>
+
+    </li>
+    <li class="main-menu">
+        <a href="#">link3</a>
+        <ul class="sub-menu">
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+            <li ><a href="#">sublink1</a></li>
+        </ul>
+
+    </li>
+</ul>
+<script>
+    var oul=document.getElementById("menu");
+    var ali=oul.children;
+    for(var i=0;i<ali.length;i++)
+    {
+        ali[i].onmouseover=function(){
+            var oSubMenu=this.children[1];
+            oSubMenu.style.display="block";
+        };
+        ali[i].onmouseout=function(){
+            var oSubMenu=this.children[1];
+            oSubMenu.style.display="none";
+        }
+
+
+    }
+</script>
+</body>
+</html>
