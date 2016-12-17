@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>垂直水平多级菜单</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        ul{
+            list-style: none;
+
+
+        }
+        a {
+            text-decoration: none;
+
+
+        }
+        #menu .main-menu ul{
+            display: none;
+        }
+        #menu .main-menu  {
+
+            height: auto;
+            width: 100px;
+            color: white;
+            background-color: black;
+
+        }
+        #menu .main-menu a{
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+
+
+        }
+
+
+        #menu .sub-menu li{
+            height: 30px;
+            width: 100px;
+            background-color:darkgrey;
+            margin-right: 5px;
+            /*display: none;*/
+            border-bottom: 1px dotted #000000;
+
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3 onselectstart="return false">link1</h3>
+        <ul class="sub-menu">
+            <li> <a href="#">sublink1</a> </li>
+            <li> <a href="#">sublink2</a> </li>
+            <li> <a href="#">sublink3</a> </li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3 onselectstart="return false">link2</h3>
+        <ul class="sub-menu">
+            <li> <a href="#">sublink1</a> </li>
+            <li> <a href="#">sublink2</a> </li>
+            <li> <a href="#">sublink3</a> </li>
+        </ul>
+    </li>
+</ul>
+<script>
+    //选择器
+//    var oUl=document.getElementById("menu");
+//    var aLi=oul.getElementsByTagName("li");
+//    for(var i=0;i<aLi.length;i++) {
+//
+//        if (aLi[i].className = "main-menu") {
+//            aLi[i].onclick = function () {
+//
+//                var oMenu = this.getElementsByTagName("ul")[0];
+//
+//                if (oMenu.style.display == "block") {
+//                    oMenu.style.display = "none";
+//                }
+//                else
+//                {
+//                    oMenu.style.display = "block";
+//                }
+//
+//
+//            }
+//
+//        }
+//    }
+//        //直接选择兄弟元素
+//         var oUl=document.getElementById("menu");
+//
+//    var aH3=oUl.getElementsByTagName("h3");
+//    for(var i=0;i<aH3.length;i++)
+//    {
+//        aH3[i].onclick=function()
+//        {
+//             if(next(this).style.display=="none")
+//             {
+//                 next(this).style.display="block";
+//             }
+//            else{
+//                 next(this).style.display="none";
+//             }
+//
+//        }
+//    }
+//    function next(elem)
+//    {
+//        do {
+//            elem = elem.nextSibling;
+//
+//        }while(elem && elem.nodeType!=1){
+//        return elem;
+//    }
+//    }
+//    //根据父亲元素选择孩子
+//    var oUl=document.getElementById("menu");
+//    var aH3=oUl.getElementsByTagName("h3");
+//    for(var i=0;i<aH3.length;i++)
+//    {
+//        aH3[i].onclick=function(){
+//            this.parentNode.children[1].style.display="block";
+//        }
+//    }
+//    //根据索引
+    var oUl=document.getElementById("menu");
+    var aH3=oUl.getElementsByTagName("h3");
+    var aUl=oUl.getElementsByTagName("ul");
+
+    for(var i=0;i<aH3.length;i++)
+    {
+        aH3[i].index=i;
+        aH3[i].bShow=false;
+        aH3[i].onclick=function(){
+//            if(aUl[this.index].style.display=="none")
+//            {
+//                aUl[this.index].style.display="block";
+//            }
+//            else
+//            {
+//                aUl[this.index].style.display="none";
+//            }
+//            //利用布尔型进行判断
+           if(this.bShow){
+               aUl[this.index].style.display="block";
+
+            }else{
+                aUl[this.index].style.display="none";
+           }
+           this.bShow=!this.bShow;
+        }
+    }
+</script>
+</body>
+</html>
