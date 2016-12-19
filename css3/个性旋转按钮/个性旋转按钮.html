@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+        height: 49px;
+        width: 49px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+
+    }
+    #container img{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        -webkit-transition: all 1s ease;
+    }
+</style>
+<body>
+<div id="container">
+
+    <img src="img/close.png" alt="">
+    <img src="img/full.png" alt="">
+    <img src="img/open.png" alt="">
+    <img src="img/prev.png" alt="">
+    <img src="img/refresh.png" alt="">
+    <img id="home" src="img/home.png" alt="">
+
+</div>
+<script>
+    var oHome=document.getElementById("home");
+    var aImg=document.getElementsByTagName("img");
+    var flag=true;
+    oHome.onclick=function () {
+        if (flag){
+            for(var i=0;i<aImg.length-1;i++){
+                var x=-170 * Math.sin(i * 22.5 * Math.PI/180);
+                var y=-170 * Math.cos(i * 22.5 * Math.PI/180);
+                aImg[i].style.WebkitTransitionDelay=i * 50 +"ms";
+                aImg[i].style.WebkitTransform="translate("+x+"px,"+y+"px) rotate(360deg)";
+
+            }
+            this.style.WebkitTransform="rotate(-360deg)";
+        }else {
+            for(var i=0;i<aImg.length-1;i++){
+                aImg[i].style.WebkitTransitionDuration = '1s';
+                aImg[i].style.WebkitTransitionDelay=(aImg.length-1-i) * 50 +"ms";
+                aImg[i].style.WebkitTransform="translate(0px,0px) rotate(0deg)";
+            }
+            this.style.WebkitTransform="rotate(0deg)";
+        }
+        flag=!flag;
+    };
+    for(var i=0;i<aImg.length - 1;i++) {
+        aImg[i].state = false;
+        aImg[i].onclick = function () {
+            if (!this.state) {
+                this.state = true;
+                var currTransform = this.style.WebkitTransform;
+                this.style.WebkitTransitionDuration = '0.3s';
+                this.style.opacity = 0.6;
+                this.style.WebkitTransform = currTransform + ' scale(2)';
+                var that = this;
+                setTimeout(function () {
+                    that.style.opacity = 1;
+                    that.style.WebkitTransform = currTransform;
+                    that.state = false;
+                }, 300)
+           }
+        }
+    }
+//    for(var i=0;i<aImg.length-1;i++){
+//        aImg[i].state=false;
+//
+//        aImg[i].onclick=function () {
+//            if(!this.state){
+//                this.state=true;
+//                var curr=this.style.WebkitTransform;
+//                this.style.WebkitTransitionDuration="0.3s";
+//                this.style.opacity=0.6;
+//                this.style.WebkitTransform=curr + "scale(2)";
+//                var that=this;
+//                setTimeout(function () {
+//                    that.style.opacity=1;
+//                    that.style.WebkitTransform=curr;
+//                    that.state=false;
+//                },300)
+//            }
+//        }
+//    }
+
+</script>
+</body>
+</html>
