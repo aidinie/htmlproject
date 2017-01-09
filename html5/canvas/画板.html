@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #333333;
+        }
+        canvas{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="400" id="canvas"></canvas>
+</body>
+<script>
+    var oCanvas=document.getElementById("canvas");
+    var ctx=oCanvas.getContext('2d');
+    oCanvas.onmousedown=function (e) {
+        ctx.moveTo(e.clientX,e.clientY);//.moveTo() 把路径移动到画布中的指定点，不创建线条
+        oCanvas.onmousemove=function (e) {
+            ctx.lineTo(e.clientX,e.clientY);//.lineTo() 添加一个新点，然后在画布中创建从该点到最后指定点的线条
+            ctx.stroke();//.stroke() 绘制已定义的路径
+            //ctx.strokeStyle="red";
+        };
+        oCanvas.onmouseup=function () {
+            oCanvas.onmousemove=null;
+        }
+    }
+</script>
+</html>
