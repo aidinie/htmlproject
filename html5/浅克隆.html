@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    var obj= {
+        name:"lisi",
+        age: 24,
+        wife:{
+            age: 23,
+            name: "wangwu",
+        }
+    };
+    var obj1=obj;
+    obj1.wife.name="wangliu";
+    console.log(obj.wife.name);
+</script>
+</html>
