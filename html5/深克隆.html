@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj={
+        name:"like",
+        age:25,
+        wife:{
+            name:"pangzi",
+            age:28,
+        }
+    };
+    var obj1=clone(obj);
+    obj.name="heizi";
+    console.log(obj);
+    console.log(obj1);
+    function clone(str) {
+        var newObj={};
+        for(var i in str){
+            typeof newObj[i]=="object"?newObj[i]=arguments.callee(str[i]):newObj[i]=str[i];
+        }
+        return newObj;
+    }
+
+
+</script>
+</html>
