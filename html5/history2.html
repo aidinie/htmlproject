@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">随机彩票</button>
+<div id="result"></div>
+</body>
+<script>
+    var oResult=document.getElementById("result");
+    var oBtn=document.getElementById("btn");
+    var obj={};
+    oBtn.onclick=function () {
+
+        var arr=[];
+        for(var i=0;i<7;i++){
+            var rand=parseInt(Math.random()*37);
+            arr.push(rand);
+        }
+        history.pushState(arr,"");
+        oResult.innerHTML=arr;
+    };
+   window.onpopstate=function (e) {
+      oResult.innerHTML= e.state;
+   }
+
+
+
+
+</script>
+</html>
