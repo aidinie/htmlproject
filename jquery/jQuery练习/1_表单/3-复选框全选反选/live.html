@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">add</button>
+	<ul class="aa">
+		<li>111</li>
+		<li>222</li>
+	</ul>
+
+	<script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+
+	<!--<script>-->
+		<!--$(function(){-->
+			<!--$('#btn').click(function() {-->
+				<!--$('ul').append("<li>333</li>");-->
+			<!--});-->
+
+			<!--// $('ul li').live('click', function(){-->
+			<!--// 	alert(  this.innerHTML  );-->
+			<!--// });-->
+
+			<!--$('ul').on('click', 'li', function(){-->
+				<!--alert(  this.innerHTML  );-->
+			<!--});-->
+		<!--});-->
+	<!--</script>-->
+	<script>
+		$(function () {
+			$('#btn').click(function () {
+
+				$('.aa').append('<li>'+Math.random()+'</li>')
+            });
+			$('ul').on('click','li',function () {
+				alert($(this).html());
+            })
+        })
+	</script>
+</body>
+</html>
