@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--   引入jQuery -->
+<script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+<!--<script src="demo.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+	/*
+		表格内容过滤练习：功能，在文本框中输入信息，在表格中自动过滤出包含文本框中文字的记录
+	*/
+	//文档就绪函数
+  $(function(){
+	  //思路：要在文本框中输入信息行，表格立刻过滤中对应的记录，首先应该触发的是文本框的键盘弹起事件，在事件中我们要过滤出想要的记录
+	  //      如果过滤？现在有两种思路：
+	  //      1.找到包含指定文本的记录行，隐藏其它行
+	  //      2.先隐藏所有行，然后找到包含指定文本的记录行，再显示它
+	  //注意问题：在某些浏览器中，有这要一个特点，就是刷新网页后，其值会保持不变，这就意味着刷新网页后，文本框中的值未必改变，但是表格中的数据又全出来了
+  $('#filterName').keyup(function () {
+	  //$('tbody tr').hide().filter(":contains("+$(this).val()+")").show();
+	  !$('tbody tr').show().not(":contains("+$(this).val()+")").hide();
+  })
+  })
+</script>
+</head>
+<body>
+<div>
+<br/>
+筛选：
+<input id="filterName" />
+<br/>
+
+</div>
+
+<table>
+	<thead>
+		<tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+		<tr><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+		<tr><td>找六</td><td>男</td><td>浙江温州</td></tr>
+		<tr><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+		<tr><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+		<tr><td>王六</td><td>男</td><td>浙江杭州</td></tr>
+		<tr><td>李字</td><td>女</td><td>浙江杭州</td></tr>
+		<tr><td>李四</td><td>男</td><td>湖南长沙</td></tr>
+	</tbody>
+</table>
+
+</body>
+</html>
