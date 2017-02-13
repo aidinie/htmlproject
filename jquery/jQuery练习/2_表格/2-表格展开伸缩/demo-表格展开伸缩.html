@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--   ����jQuery -->
+<script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+<!--<script src="demo.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+	/*
+		���չ�����������ܣ��������д�?�����У�����ʾ�����ش�����Ӽ�����
+	*/
+	//�ĵ���������
+	$(function(){
+		$('tr.parent').click(function () {
+			$(this).toggleClass('selected').siblings('.child_'+this.id).toggle()
+        })
+	})
+</script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr><th>����</th><th>�Ա�</th><th>��ס��</th></tr>
+		</thead>
+		<tbody>
+			<tr class="parent" id="row_01"><td colspan="3">ǰ̨�����</td></tr>
+			<tr class="child_row_01"><td>��ɽ</td><td>��</td><td>�㽭����</td></tr>
+			<tr class="child_row_01"><td>����</td><td>Ů</td><td>�㽭����</td></tr>
+
+			<tr class="parent" id="row_02"><td colspan="3">ǰ̨������</td></tr>
+			<tr class="child_row_02"><td>����</td><td>��</td><td>���ϳ�ɳ</td></tr>
+			<tr class="child_row_02"><td>����</td><td>��</td><td>�㽭����</td></tr>
+
+			<tr class="parent" id="row_03"><td colspan="3">��̨������</td></tr>
+			<tr class="child_row_03"><td>Rain</td><td>��</td><td>�㽭����</td></tr>
+			<tr class="child_row_03"><td>MAXMAN</td><td>Ů</td><td>�㽭����</td></tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
