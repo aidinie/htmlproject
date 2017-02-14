@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background-color: #666;
+        }
+        #container{
+            width: 400px;
+            height: 434px;
+            margin:  100px auto;
+        }
+        #big-pic{
+            width: 400px;
+            height: 320px;
+            position: relative;
+        }
+        #big-img li{
+            width: 400px;
+            height: 320px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+        #left,#right{
+            width: 200px;
+            height: 320px;
+            position: absolute;
+            z-index: 99999;
+            opacity: 0;
+        }
+        #left{
+            left: 0px;
+            top: 0px;
+
+        }
+        #right{
+            right: 0px;
+            top: 0px;
+
+        }
+        #left-btn,#right-btn{
+            height: 60px;
+            width: 60px;
+            position: absolute;
+        }
+        #left-btn{
+            left: 0px;
+            top: 130px;
+            background: url("img/btn.gif")
+
+        }
+        #right-btn{
+            right: 0px;
+            top: 130px;
+            background: url("img/btn.gif") 0px bottom;
+
+        }
+        #text{
+            width: 400px;
+            height: 30px;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            background-color: black;
+            z-index: 99998;
+            opacity: 0.5;
+            color: white;
+            line-height: 30px;
+
+        }
+        #text-left{
+            float: left;
+            margin-left: 10px;
+        }
+        #text-right{
+            float: right;
+            margin-right:10px ;
+        }
+        #small-pic{
+            width: 400px;
+            height: 114px;
+            background-color: #999;
+            overflow: hidden;
+            position: relative;
+        }
+        #small-img{
+            width: 780px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+       #small-img li{
+           width: 120px;
+           height: 94px;
+           float: left;
+           margin: 10px 0 10px 10px;
+           opacity: 0.6;
+       }
+        #small-img li img{
+            width: 120px;
+            height: 94px;
+        }
+    </style>
+</head>
+<body>
+ <div id="container">
+     <div id="big-pic">
+         <ul id="big-img">
+             <li style="z-index: 1"><img src="img/1.jpg" title="11111"></li>
+             <li><img src="img/2.jpg" title="22222"></li>
+             <li><img src="img/3.jpg" title="33333"></li>
+             <li><img src="img/4.jpg" title="44444"></li>
+             <li><img src="img/5.jpg" title="55555"></li>
+             <li><img src="img/6.jpg" title="66666"></li>
+         </ul>
+         <div id="left">
+             <span id="left-btn"></span>
+         </div>
+         <div id="right">
+             <span id="right-btn"></span>
+         </div>
+         <div id="text">
+             <span id="text-left">11111</span>
+             <div id="text-right">
+                 <span id="num">1</span>/<span>6</span>
+             </div>
+         </div>
+     </div>
+     <div id="small-pic">
+         <ul id="small-img">
+             <li style="opacity: 1"><img src="img/1.jpg"></li>
+             <li><img src="img/2.jpg"></li>
+             <li><img src="img/3.jpg"></li>
+             <li><img src="img/4.jpg"></li>
+             <li><img src="img/5.jpg"></li>
+             <li><img src="img/6.jpg"></li>
+         </ul>
+     </div>
+ </div>
+ <script src="jslib.js"></script>
+<script>
+    var oContainer=document.getElementById("container");
+    var oLeft=document.getElementById("left");
+    var oRight=document.getElementById("right");
+    var oLeftBtn=document.getElementById("left-btn");
+    var oRightBtn=document.getElementById("right-btn");
+    var oBigImg=document.getElementById("big-img");
+    var aBigImg=oBigImg.getElementsByTagName("li");
+    var oSmallImg=document.getElementById("small-img");
+    var aSmallImg=oSmallImg.getElementsByTagName("li");
+    var oNum=document.getElementById("num");
+    var oTestLeft=document.getElementById("text-left");
+    var iNow=0;
+    var zIndex=1;
+    oLeft.onmouseover=oRight.onmouseover=function(){
+        animate(this,{opacity:100});
+    };
+    oLeft.onmouseout=oRight.onmouseout=function(){
+        animate(this,{opacity:0});
+    };
+    oLeftBtn.onclick=oRightBtn.onclick=function(){
+        if(this==oLeftBtn){
+            iNow--;
+            if(iNow==-1) {
+                iNow=aBigImg.length-1;
+            }
+
+        }else{
+            iNow++;
+            if(iNow==aBigImg.length){
+                iNow=0;
+            }
+        }
+        changeImg(iNow);
+    };
+  function changeImg(idx){
+      aBigImg[idx].style.zIndex=zIndex++;
+      aBigImg[idx].style.height=0;
+      oNum.innerHTML=iNow+1;
+      oTestLeft.innerHTML=aBigImg[idx].getElementsByTagName("img")[0].title;
+      iNow=idx;
+    for(var i=0;i<aSmallImg.length;i++){
+        aSmallImg[i].style.opacity=0.6;
+        if(i==idx){
+            aSmallImg[i].style.opacity=1;
+        }
+    }
+      if(idx==0){
+          animate(oSmallImg,{left:0})
+      }else if(idx==aSmallImg.length-1){
+          animate(oSmallImg,{left:-(idx-2)*(aSmallImg[0].offsetWidth +10)})
+      }else{
+          animate(oSmallImg,{left:-(idx-1)*(aSmallImg[0].offsetWidth +10)})
+      }
+
+       animate(aBigImg[idx],{height:320});
+  }
+    for(var i=0;i<aSmallImg.length;i++){
+        aSmallImg[i].index=i;
+        aSmallImg[i].onmouseover=function(){
+            this.style.opacity=1;
+        };
+        aSmallImg[i].onmouseout=function(){
+            if(this.index !=iNow){
+                this.style.opacity=0.6;
+            }
+        };
+        aSmallImg[i].onclick=function(){
+//            iNow=this.index;
+//            changeImg(iNow);
+            if(this.index !=iNow){
+                changeImg(this.index);
+            }
+
+
+        }
+    }
+    var timer=setInterval(function(){
+        oRightBtn.onclick();
+    },1000);
+    oContainer.onmouseover=function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout=function(){
+        timer=setInterval(function(){
+            oRightBtn.onclick();
+        },1000);
+    };
+</script>
+</body>
+</html>
