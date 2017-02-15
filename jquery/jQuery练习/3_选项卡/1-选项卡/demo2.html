@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <style type="text/css">
+           ul,li{
+           	margin:0px;
+			padding:0px;
+			list-style:none;
+           }
+		   li{
+		   	float:left;
+			background-color:#aaa;
+			color:white;
+			padding:5px;
+			margin-right:2px;
+			border:1px solid white;
+		   }
+		   div{
+		   	clear:left;
+			background-color:#777;
+			color:white;
+			width:300px;
+			height:100px;
+			padding:10px;
+			display:none;
+		   }
+		   #divOne{
+		   	display:block;
+		   }
+		   #liOne{
+		   	background-color:#777;
+			border:1px solid #777;
+		   }
+        </style>
+		<script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+        <!--<script src="demo2.js" type="text/javascript"></script>-->
+        <script type="text/javascript">
+			//文档就绪函数
+			$(function(){
+		     $('li').mouseover(function () {
+                 $(this).css('background-color','blue');
+                 $('li').not(this).css('background-color','green');
+                 var index=$(this).index();
+                 $('div').hide();
+                 $('div').eq(index).show();
+
+             })
+			})
+	</script>
+    </head>
+    <body>
+    	<ul>
+    		<li id="liOne">标签1</li>
+			<li>标签2</li>
+			<li>标签3</li>
+    	</ul>
+		<div id="divOne">我是内容1</div>
+		<div>我是内容2</div>
+		<div>我是内容3</div>
+    </body>
+</html>
