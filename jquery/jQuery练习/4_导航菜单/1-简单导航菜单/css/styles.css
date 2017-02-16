@@ -1,0 +1,71 @@
+/*
+        	 * 清除小圆点
+        	 */
+        	ul,li{		
+        		list-style:none;
+				font-size:20px;
+        	}
+			/*
+			 * 清除子菜单的缩进
+			 */
+			ul{
+				padding:0px;
+				margin:0px;
+			}
+			/*
+			 * 主菜单颜色
+			 */
+			.main{
+				width:150px;
+				background:#ccc;
+			}
+			/*
+			 * 子菜单颜色
+			 */
+			li{
+				background:#777;
+				
+			}
+        	a{
+        		color:black;
+        		text-decoration:none;
+				padding-left:20px;
+				display:block;
+				padding-bottom:3px;
+				padding-top:3px;
+        	}
+			.main a{
+				background-image:url("../images/down.gif");
+				background-repeat:no-repeat;
+				background-position:3px center;
+				
+			}
+			.main li a{
+				color:white;
+				background-image:none;
+				
+			}
+			.main ul{
+				display:none;
+			}
+			
+			
+			.hmain{
+				width:150px;
+				background:#ccc;
+				float:left;
+			}
+			.hmain a{
+				background-image:url("../images/down.gif");
+				background-repeat:no-repeat;
+				background-position:3px center;
+				
+			}
+			.hmain li a{
+				color:white;
+				background-image:none;
+				
+			}
+			.hmain ul{
+				display:none;
+			}
