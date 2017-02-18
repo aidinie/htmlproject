@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #tab li{
+            float: left;
+            height: 20px;
+            width: 20px;
+            background-color: black;
+            color: white;
+            margin: 2px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+
+
+
+        }
+        #tab{
+            position: absolute;
+            right: 0px;
+            bottom: 20px;
+            z-index: 999999;
+        }
+
+        #arrow span{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-color: black;
+            color: white;
+            margin: 2px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #arrow{
+            position: absolute;
+           left: 0px;
+            bottom: 20px;
+            z-index: 999999;
+        }
+        #container{
+            height: 200px;
+            width: 350px;
+            background-color: red;
+            position: relative;
+            margin: 100px auto;
+        }
+        #content{
+            position: absolute;
+        }
+        #content img{
+            position: absolute;
+        }
+        #tab .selected{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+   <ul id="tab">
+       <li class="selected">1</li>
+       <li>2</li>
+       <li>3</li>
+       <li>4</li>
+   </ul>
+    <div id="content">
+       <img src="image/sport.jpg" height="200px" width="350px" >
+        <img src="image/book.jpg" height="200px" width="350px" >
+        <img src="image/cloth.jpg" height="200px" width="350px" >
+        <img src="image/computer.jpg" height="200px" width="350px" >
+
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+
+</div>
+<script src="jslib.js"></script>
+<script>
+    var oContainer=document.getElementById("container");
+    var aLi=oContainer.getElementsByTagName("li");
+    var aImg=oContainer.getElementsByTagName("img");
+    var oNext=document.getElementById("next");
+    var oPrev=document.getElementById("prev");
+    var oContent=document.getElementById("content");
+    var iNow=0;
+    var timer;
+    var iZIndex=4;
+    for(var i=0;i<aLi.length;i++)
+    {
+        aLi[i].index=i;
+        aImg[i].style.zIndex=aLi.length-i;
+        aLi[i].onmousemove=function(){
+
+            iNow=this.index;
+            change(this.index);
+
+        }
+    }
+    oNext.onclick=function(){
+        iNow++;
+        iNow=iNow%aLi.length;
+        change(iNow);
+    };
+    oPrev.onclick=function(){
+        iNow--;
+        if(iNow==-1){
+            iNow=aLi.length-1;
+        }
+        change(iNow);
+    };
+    function change(index){
+        for(var j=0;j <aLi.length;j++){
+            aLi[j].className="";
+        }
+
+        aLi[index].className="selected";
+
+        aImg[index].style.opacity="0";
+        aImg[index].style.filter="alpha(opacity=0)";
+
+
+        aImg[index].style.zIndex=iZIndex++;
+        animate(aImg[index],{opacity:100})
+    }
+    var timer=setInterval(function(){
+        oNext.onclick();
+    },2000);
+    oContainer.onmouseover=function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout=function(){
+        timer= setInterval(function(){
+            oNext.onclick();
+        },2000)
+    };
+
+</script>
+</body>
+</html>
