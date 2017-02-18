@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Function Object
+    var obj=new Object();
+    console.log(Object.prototype); //{}
+    console.log(obj.__proto__); //{}
+    console.log(Object.prototype === obj.__proto__);//true
+    //function 有prototype object 有 __proto__
+
+
+    console.log(typeof Function); //function
+    console.log(typeof Object);  //function
+    console.log(Function instanceof Object); //true
+    console.log(Object instanceof Function);  //true
+
+    var arr1=new Array();
+    console.log("222");
+    console.log(Array.prototype);//[]
+    console.log(arr1.__proto__);//[]
+    console.log(Array.prototype===arr1.__proto__);//true
+    //Function Array
+    console.log(Array instanceof Object); //true
+    console.log(Object instanceof Array);  //false
+    console.log(typeof Array); //function
+
+    var func=new Function();
+    console.log(typeof func); //空function 被实例化 func-->function
+
+    var obj=new Object();
+    console.log(typeof obj); //object
+
+    var arr=new Array();
+    console.log(typeof arr); //object
+
+
+
+</script>
+</html>
