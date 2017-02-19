@@ -1,0 +1,553 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
+<HTML lang="zh-CN">
+ <HEAD>
+ <META content="text/html; charset=utf-8" http-equiv="Content-Type">
+ <TITLE>豆瓣</TITLE>
+ <STYLE type="text/css">
+html {
+	color:#111;
+	background:#fff
+}
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+	margin:0;
+	padding:0
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+ul {
+	list-style:none
+}
+ol {
+	padding:0 0 0 20px
+}
+a {
+	cursor:pointer
+}
+a:link {
+	color:#369;
+	text-decoration:none
+}
+a:visited {
+	color:#669;
+	text-decoration:none
+}
+a:hover {
+	color:#fff;
+	text-decoration:none;
+	background:#039
+}
+a:active {
+	color:#fff;
+	text-decoration:none;
+	background:#f93
+}
+a img {
+	border-width:0;
+	vertical-align:middle
+}
+body, td, th {
+	font:12px Arial, Helvetica, sans-serif;
+	line-height:162%
+}
+body {
+	margin:15px 0;
+*margin:8px 0
+}
+.ul {
+	border-bottom:1px dashed #ddd;
+	line-height:100%;
+	clear:both
+}
+.cate-mod {
+	clear:both;
+	width:100%;
+	margin-bottom:30px;
+	margin-top:50px;
+	;
+}
+.cate-mod .content {
+	clear:both;
+	position:relative;
+	border:1px solid #efeeed;
+	width:608px
+}
+.cate-mod .list {
+	background:#f6f5f5 url(pics/nav/ui_b_1.png) no-repeat 0 0;
+	border-bottom:0;
+	padding-left:10px;
+	width:600px
+}
+.cate-mod .list ul {
+	height:25px;
+	background:url(pics/nav/ui_b_1.png) no-repeat 100% 0
+}
+.cate-mod .list li {
+	float:left;
+	margin-top:3px;
+	padding-left:4px;
+	height:22px;
+	line-height:23px
+}
+.cate-mod .list li.on {
+	position:relative;
+	z-index:1;
+	bottom:-1px;
+	background:#fff url(pics/nav/ui_b_1.png) no-repeat 0 -40px
+}
+.cate-mod .list li a:link, .cate-mod .list li a:visited, .cate-mod .list li a:hover, .cate-mod .list li a:active {
+	position:relative;
+	display:block;
+*display:inline;
+	zoom:1;
+	padding:0 9px 0 5px;
+	height:22px;
+	overflow:hidden;
+	background-color:transparent;
+	line-height:26px;
+	text-align:center
+}
+.cate-mod .list li a:hover, .cate-mod .list li a:active {
+	color:#369
+}
+.cate-mod .list li.on a, .cate-mod .list li.on a:link, .cate-mod .list li.on a:visited, .cate-mod .list li.on a:hover, .cate-mod .list li.on a:active {
+	line-height:23px;
+	background:#fff url(pics/nav/ui_b_1.png) no-repeat 100% -40px
+}
+.cate-mod .x1, .cate-mod .x2 {
+	position:absolute;
+	bottom:-1px;
+	width:4px;
+	height:4px;
+	overflow:hidden;
+	background:url(pics/nav/ui_b_1.png) no-repeat 0 -74px
+}
+.cate-mod .x1 {
+	left:-1px;
+	background-position:-8px -74px
+}
+.cate-mod .x2 {
+	right:-1px
+}
+.cate-mod .content dl {
+	margin-bottom:15px
+}
+.cate-mod .item {
+	position:absolute;
+	width:95%;
+*width:96%;
+	top:23px;
+	left:20px
+}
+.cate-mod .sub-item {
+	float:left;
+	height:72px;
+	overflow:hidden;
+	width:49%;
+*width:48%;
+*zoom:1;
+	margin:0 2px 15px 0;
+	border-bottom:1px dashed #aaa
+}
+.cate-mod .sub-item .pic {
+	display:table-cell;
+	width:48px;
+	height:48px;
+	padding-right:1em;
+*float:left;
+	vertical-align:top
+}
+.cate-mod .sub-item .pic img {
+	margin-bottom:-3px;
+	width:48px;
+	height:48px
+}
+.cate-mod .sub-item .info {
+	display:table-cell;
+*float:left;
+	vertical-align:top;
+	word-wrap:break-word;
+	word-break:break-all;
+	color:#666
+}
+.cate-mod .sub-item p {
+	margin:0 20px 0 0
+}
+.cate-mod .hide {
+	display:none
+}
+.cate-mod .last {
+	border:0
+}
+body {
+	margin:0
+}
+</STYLE>
+ <script src="../../../jquery-1.12.4.js" type="text/javascript"></script>
+ <!--<script src="demo.js" type="text/javascript"></script>-->
+ <SCRIPT>
+//   $(function () {
+//       $('.list ul li').click(function () {
+//           $(this).addClass('on').siblings().removeClass('on');
+//           var idx = $(this).index();
+//           $($(".content .item")[idx]).show().siblings().hide();
+//       });
+
+//       var $tab=$('.list ul li');
+//       function Carousel() {
+//           var timer = -1;
+//           this.start = function () {
+//               var idx = $tab.index($tab.filter('.on'));
+//               timer = setInterval(function () {
+//                   if (idx == $tab.length) {
+//                       idx = 0;
+//                   }
+//                   $($tab[idx++]).trigger('click')
+//               }, 2000)
+//           };
+//           this.pause=function () {
+//               clearInterval(timer);
+//           }
+//       }
+//           var carousel = new Carousel();
+//           carousel.start();
+//           $tab.add(".content .item").hover(function () {
+//               carousel.pause();
+//           }, function () {
+//               carousel.start();
+//           });
+//
+////
+//   })
+     $(function () {
+         $('.list ul li').click(
+             function () {
+                 $(this).addClass('on').siblings().removeClass('on');
+                 $('.content .item').eq( $(this).index()).show().siblings().hide();
+             }
+         );
+         var $tab=$('.list ul li');
+         function change() {
+             var timer=-1;
+             this.start=function () {
+                 var idx=$tab.index($tab.filter('.on'));
+                 timer=setInterval(function () {
+                     if(idx==$tab.length){
+                         idx=0;
+                     }
+                     $($tab[idx++]).trigger('click');
+                 },2000);
+             };
+             this.stop=function () {
+                 clearInterval(timer);
+             }
+         }
+         var change1=new change();
+         change1.start();
+         $tab.add(".content .item").hover(function () {
+             change1.stop();
+         },function () {
+             change1.start();
+         })
+
+     })
+
+ </SCRIPT>
+ </HEAD>
+ <BODY>
+<DIV id="db-groups-cate" class="cate-mod">
+   <DIV class="bd">
+    <DIV class="list">
+       <UL>
+        <LI class="on"><A href="#">生活</A></LI>
+        <LI><A href="#">兴趣</A></LI>
+        <LI><A href="#">文化艺术</A></LI>
+        <LI><A href="#">音乐电影</A></LI>
+        <LI><A href="#">本地</A></LI>
+        <LI><A href="#">其他</A></LI>
+      </UL>
+     </DIV>
+    <DIV class="content">
+       <DIV class="item item_0">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/frenchlifestyle/"><IMG 
+alt="法兰西情结: 美酒，美食，美好人生" src="images/g131612-4.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/frenchlifestyle/">法兰西情结: 
+             美酒，美食，...</A> (177)
+            <P>前两年在上海巧遇巴黎高商的一台湾同学，现顶着美国某大学教...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/166185/"><IMG alt="我们一起写日记" 
+src="images/g166185-3.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/166185/">我们一起写日记</A> (5000)
+            <P>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/205089/"><IMG alt="那一年 我们不懂爱情" 
+src="images/g205089-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/205089/">那一年 我们不懂爱情</A> (4924)
+            <P>如果时光可以倒流,我们还愿意回到那一年吗?弥补过去的遗憾吗...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/getupearly/"><IMG alt="让我们一起做晨型人吧！" 
+src="images/g225599-3.jpg"></A></DIV>
+           <DIV class="info"><A 
+href="http://www.douban.com/group/getupearly/">让我们一起做晨型人吧！</A> (5000)
+            <P>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/gou/"><IMG alt="爱狗俱乐部" 
+src="images/g12238-2.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/gou/">爱狗俱乐部</A> (1124)
+            <P>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/361153/"><IMG alt="看起来就是比你们年轻" 
+src="images/g361153-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/361153/">看起来就是比你们年轻</A> (1765)
+            <P>我们好年轻～  我们好娇嫩～  我们都是无敌青春美少女～～...</P>
+          </DIV>
+         </DIV>
+      </DIV>
+       <DIV class="item item_1 hide">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/mandt/"><IMG alt="推理翻译" 
+src="images/g147604-45.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/mandt/">推理翻译</A> (2395)
+            <P>推理翻译专门组；纯民间组织，非推理圣坛 小组图标：来自...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/drunk/"><IMG alt="不喝点酒就浑身抽抽" 
+src="images/g58422-9.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/drunk/">不喝点酒就浑身抽抽</A> (2146)
+            <P>小组的我们都偏爱杯中之物，没事儿喝点小酒才是正经事。...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/320386/"><IMG alt="我们一起创造给力画面 !" 
+src="images/g320386-4.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/320386/">我们一起创造给力画面 !</A> (1685)
+            <P>快使用双截棍┗(｀o′)┓哼┏(｀○′)┛哼┏(｀o′)┓哈┗...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/201001/"><IMG alt="人生的意义在于电视剧" 
+src="images/g201001-7.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/201001/">人生的意义在于电视剧</A> (1469)
+            <P>祝每位组员天天开心，有好剧看 空虚的时候 看看电视剧 ...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/61581/"><IMG alt="夜晚跑步爱好者乐园" 
+src="images/g61581-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/61581/">夜晚跑步爱好者乐园</A> (2780)
+            <P>欢迎来到夜晚跑步爱好者乐园～～ 让那些夜晚跑步...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/99630/"><IMG alt="动画同学会" 
+src="images/g99630-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/99630/">动画同学会</A> (1361)
+            <P>我们热爱动画，我们学习动画，我们在做动画···我们一起...</P>
+          </DIV>
+         </DIV>
+      </DIV>
+       <DIV class="item item_2 hide">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/205665/"><IMG alt="關於舞蹈的一切" 
+src="images/g205665-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/205665/">關於舞蹈的一切</A> (563)
+            <P>關於舞蹈的一切 只是一個初步的構想，可以有對choreographe...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/semiotics/"><IMG alt="符号学研究" 
+data-defer-src="http://img3.douban.com/icon/g48997-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/semiotics/">符号学研究</A> (994)
+            <P>不是《达芬奇密码》，也不是“玫瑰之名”。 这个小组从涂...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/71879/"><IMG alt="狂爱英音" 
+src="images/g71879-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/71879/">狂爱英音</A> (3631)
+            <P>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/199108/"><IMG alt="心理学书籍和电影评论分享" 
+src="images/g199108-3.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/199108/">心理学书籍和电影评论分享</A> (4121)
+            <P>每当看完一本心理学方面的书，总是深有体会，想要跟更多的朋...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/256167/"><IMG alt="耶鲁大学开放课程 YALE open course" 
+src="images/g256167-5.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/256167/">耶鲁大学开放课程 YALE 
+             op...</A> (5000)
+            <P>耶鲁大学推出了一系列开放课程,在这里创建一个小组供大家讨...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/kundera/"><IMG alt="米兰昆德拉" 
+src="images/g12247-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/kundera/">米兰昆德拉</A> (5968)
+            <P>轻与重</P>
+          </DIV>
+         </DIV>
+      </DIV>
+       <DIV class="item item_3 hide">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/142641/"><IMG alt="自学钢琴" 
+src="images/g142641-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/142641/">自学钢琴</A> (2891)
+            <P>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/joannawang/"><IMG alt="Joanna Wang | 王若琳" 
+src="images/g77374-2.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/joannawang/">Joanna Wang 
+             | 王若琳</A> (9499)
+            <P>西洋的诺拉琼斯 日本的小野丽莎 台湾的Joanna Wang ...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/zoubian/"><IMG alt="每天一歌" 
+src="images/g198988-9.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/zoubian/">每天一歌</A> (1206)
+            <P>把每天听到的最喜欢的一首歌发上试听大家共享 记录心情 ...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/200545/"><IMG alt="土电统治世界" 
+src="images/g200545-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/200545/">土电统治世界</A> (286)
+            <P>公告： 组长绝对做不到每周更新，因为众所周知的原因。...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/theartoffilm/"><IMG alt="电影饭店" 
+src="images/g69947-4.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/theartoffilm/">电影饭店</A> (339)
+            <P>電影〓飯店 强奸思想 捏造生活 虚构热情 封尘空虚...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/scarlett_j/"><IMG alt="Scarlett Johansson" 
+src="images/g20324-5.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/scarlett_j/">Scarlett 
+             Johansson</A> (8729)
+            <P>【她很美。。。】 　     姓名：Scarlett I. Johansson ...</P>
+          </DIV>
+         </DIV>
+      </DIV>
+       <DIV class="item item_4 hide">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/hbc/"><IMG alt="湖南商学院" 
+src="images/g44725-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/hbc/">湖南商学院</A> (629)
+            <P>欢迎任何与商学院有关的人员加入！----------------------...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/85862/"><IMG alt="迷恋希腊" 
+src="images/g85862-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/85862/">迷恋希腊</A> (1274)
+            <P> 25岁前一定要去希腊。。。。。那是一个对自己的承诺。。...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/shanghaiavenue/"><IMG alt="上海马路 上海弄堂" 
+src="images/g14153-10.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/shanghaiavenue/">上海马路 
+             上海弄堂</A> (8247)
+            <P> ●让我们拾起散落在上海城市角落里的文化● ...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/bedfordshireuni/"><IMG 
+alt="University of Bedfordshire 贝德福德郡大学" src="images/g270078-1.jpg"></A></DIV>
+           <DIV class="info"><A 
+href="http://www.douban.com/group/bedfordshireuni/">University of 
+             Bedfordshi...</A> (239)
+            <P>英国贝德福德郡大学（或译贝德福特大学）原名卢顿大学（Univ...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item last">
+           <DIV class="pic"><A href="http://www.douban.com/group/napcafe/"><IMG alt="Nap Cafe" 
+src="images/g35813-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/napcafe/">Nap Cafe</A> (7913)
+            <P>欢迎来Nap Cafe！ 原产地咖啡豆、原产地巧克力、红茶，世...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item last">
+           <DIV class="pic"><A href="http://www.douban.com/group/118474/"><IMG alt="乌镇_____似水年华。" 
+src="images/g118474-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/118474/">乌镇_____似水年华。</A> (1815)
+            <P>赤脚走在乌镇的青石板路上，从脚底慢慢浸透整个身躯...</P>
+          </DIV>
+         </DIV>
+      </DIV>
+       <DIV class="item item_5 hide">
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/209998/"><IMG alt="外星语言交流" 
+src="images/g209998-4.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/209998/">外星语言交流</A> (534)
+            <P>火星语，土星语，冥王星语，代表月亮消灭你； 波斯文，土蕃...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/324211/"><IMG alt="150cm Beauty   小个子爱美丽" 
+src="images/g324211-1.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/324211/">150cm Beauty   
+             小个子爱...</A> (474)
+            <P>讨厌别人问我们有多高，讨厌任何需要填身高的表格，讨厌体检...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/111124/"><IMG alt="没目标邪会——国庆照样没目标！！" 
+src="images/g111124-3.jpg"></A></DIV>
+           <DIV class="info"><A 
+href="http://www.douban.com/group/111124/">没目标邪会——国庆照样没...</A> (1172)
+            <P>你会迷茫？无所措？ 不知道自己的将来在哪里？ 推荐http...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/71386/"><IMG alt="一只单眼皮 一只双眼皮" 
+src="images/g71386-5.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/71386/">一只单眼皮 一只双眼皮</A> (1007)
+            <P>貌似这样的人很少 但我便是一个 曾经我为此自卑过...也一...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/studyabroadef/"><IMG alt="我们爱游学" 
+src="images/g344822-6.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/studyabroadef/">我们爱游学</A> (1496)
+            <P>微博：http://weibo.com/efekta/免费海外游学生活手册大派...</P>
+          </DIV>
+         </DIV>
+        <DIV class="sub-item">
+           <DIV class="pic"><A href="http://www.douban.com/group/bluelove/"><IMG alt="我又不是富二代！!" 
+src="images/g232039-6.jpg"></A></DIV>
+           <DIV class="info"><A href="http://www.douban.com/group/bluelove/">我又不是富二代！!</A> (2181)
+            <P>`当他还年轻时，也总幻想自己就是世界的中心 拥有秒杀一...</P>
+          </DIV>
+         </DIV>
+      </DIV>
+     </DIV>
+  </DIV>
+   <SPAN class="x1">&nbsp;</SPAN><SPAN 
+class="x2">&nbsp;</SPAN></DIV>
+<DIV style="height: 30px; clear: both; font-size: 16px; margin-top: 250px; float: left;">豆瓣广告轮播效果，每2秒转换一次</DIV>
+</BODY>
+</HTML>
