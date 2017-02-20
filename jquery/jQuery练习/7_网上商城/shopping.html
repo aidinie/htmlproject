@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul,li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    #header{
+        height: 105px;
+        background-color: grey;
+        position: relative;
+    }
+    #nav{
+        width: 990px;
+        height: 37px;
+        background-color: black;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        margin-left: -495px;
+
+    }
+    #header1{
+        width: 990px;
+        height: 68px;
+        position: absolute;
+        left: 50%;
+        margin-left: -495px;
+    }
+    #nav ul li{
+        display: inline-block;
+        line-height: 37px;
+        margin-left: 20px;
+
+    }
+    #nav ul li a{
+        color: white;
+    }
+    #search{
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        height: 27px;
+        width: 214px;
+        margin-top: -13px;
+    }
+    #header1 ul{
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 128px;
+        height: 23px;
+    }
+    #header1 ul li{
+        display: inline-block;
+        float: left;
+        height: 15px;
+        width: 15px;
+        margin-right: 6px;
+    }
+    #skin_0{
+        background-color: blue;
+    }
+    #skin_1{
+        background-color: purple;
+    }
+    #skin_2{
+        background-color: red;
+    }
+    #skin_3{
+        background-color: #08BECE;
+    }
+    #skin_4{
+        background-color: orange;
+    }
+    #skin_5{
+        background-color: lawngreen;
+    }
+    #content{
+        width: 990px;
+        height: 580px;
+        position: absolute;
+        top: 110px;
+        left: 50%;
+        margin-left: -495px;
+        /*background-color: #08BECE;*/
+    }
+    #left{
+        width: 187px;
+        height: 560px;
+        border: solid 1px;
+    }
+    #h2{
+        width: 187px;
+        height: 30px;
+        background-color: #6E6E6E;;
+        color: white;
+        font-size: 12px;
+        line-height: 30px;
+        text-indent: 13px;
+    }
+    .h3{
+        width: 164px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 25px;
+        text-indent: 13px;
+
+    }
+    .list{
+        width: 165px;
+        height: 104px;
+        margin-left: 10px;
+
+    }
+    .list li{
+        display: block;
+        float: left;
+        width: 79px;
+        height: 24px;
+    }
+    .list li a{
+        color: #444444;
+        font-size: 10px;
+    }
+    #right{
+        width: 790px;
+        height: 562px;
+        background-color: #00A5FF;
+        position: absolute;
+        left: 200px;
+        top: 0px;
+
+    }
+    #top{
+        height: 321px;
+        position: relative;
+    }
+    #img{
+        width: 550px;
+        height: 321px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: green;
+    }
+    #ul1{
+        position: absolute;
+    }
+    #ul1 li img{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    #ul2{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        z-index: 9999;
+    }
+    #ul2 li{
+        display: block;
+        float: left;
+        /*background-color: gray;*/
+        width: 109px;
+        height: 42px;
+        margin-right: 1px;
+        /*opacity: 0.7;*/
+        background: rgba(105,105,105,0.5);
+        text-align: center;
+        line-height: 42px;
+
+    }
+    #ul2 li.selected{
+        background-color: dodgerblue;
+    }
+    #ul2 li a{
+        color: white;
+        opacity: 1;
+    }
+
+    #top_right{
+        width: 230px;
+        height: 321px;
+        position: absolute;
+        left: 560px;
+        top: 0px ;
+        background-color: red;
+    }
+    #top_right_top{
+        width: 230px;
+        height: 176px;
+        position: absolute;
+        top:0;
+        left: 0;
+        background-color: #6D84B4;
+        overflow: hidden;
+    }
+    #top_right_bottom{
+        width: 230px;
+        height: 135px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background-color: gold;
+    }
+    #footer{
+        position: absolute;
+        top: 700px;
+        height: 54px;
+        left: 50%;
+        margin-left: -40px;
+    }
+    #top_right_bottom h2{
+        width: 228px;
+        height: 24px;
+        font-size: 10px;
+        line-height: 24px;
+        text-indent: 13px;
+
+    }
+    #huodong li{
+        text-indent: 13px;
+    }
+    #huodong li a{
+        font-size: 10px;
+    }
+    #top_right_top img {
+        -webkit-transition:1s all;
+        -moz-transition:1s all;
+        -o-transition:1s all;
+        transition:1s all;
+    }
+    #top_right_top:hover img{
+        -webkit-transform:rotate(720deg);
+        -moz-transform:rotate(720deg);
+        -o-transform:rotate(720deg);
+        transform:rotate(720deg);
+    }
+    #bottom{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 790px;
+        height: 230px;
+    }
+    #bottom-top{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 790px;
+        height: 30px;
+    }
+    #bottom-top h2{
+        font-size: 15px;
+        line-height: 30px;
+
+    }
+    #ul3{
+        width: 216px;
+        height: 23px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #ul3 li{
+        width: 44px;
+        height: 20px;
+        display: block;
+        float: left;
+        background-color: #E4E4E4;
+        margin-right: 10px;
+        line-height: 20px;
+        text-align: center;
+
+    }
+    #ul3 li a{
+        color: black;
+        font-size: 10px;
+    }
+    #bottom-bottom{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 200px;
+        width: 790px;
+    }
+    #ul4{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+    }
+    #ul4 li{
+        display: block;
+        float: left;
+        height: 200px;
+        width: 183px;
+        margin-right: 14px;
+        text-align: center;
+    }
+
+
+</style>
+<body>
+<div id="header">
+    <div id="header1">
+        <a href="#"><img src="images/logo.gif" alt=""></a>
+        <input type="text" id="search" placeholder="请输入要搜索的商品名称">
+        <ul>
+            <li id="skin_0"></li>
+            <li id="skin_1"></li>
+            <li id="skin_2"></li>
+            <li id="skin_3"></li>
+            <li id="skin_4"></li>
+            <li id="skin_5"></li>
+        </ul>
+    </div>
+
+
+    <div id="nav">
+        <ul>
+            <li><a href="">首页</a></li>
+            <li><a href="">品牌</a></li>
+            <li><a href="">男装</a></li>
+            <li><a href="">女装</a></li>
+            <li><a href="">鞋包配饰</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="content">
+    <div id="left">
+      <h2 id="h2">商品分类</h2>
+        <h3 class="h3">推荐品牌</h3>
+        <hr>
+        <ul class="list">
+            <li><a href="">耐克</a></li>
+            <li><a href="">阿迪达斯</a><img src="images/hot.gif" alt=""></li>
+            <li><a href="">达芙妮</a></li>
+            <li><a href="">李宁</a></li>
+            <li><a href="">安踏</a></li>
+            <li><a href="">奥康</a></li>
+            <li><a href="">骆驼</a><img src="images/hot.gif" alt=""></li>
+            <li><a href="">特步</a></li>
+        </ul>
+        <h3 class="h3">女装</h3>
+        <hr>
+        <ul class="list">
+            <li><a href="">呢大衣</a></li>
+            <li><a href="">T恤</a></li>
+            <li><a href="">羽绒</a></li>
+            <li><a href="">衬衫</a></li>
+            <li><a href="">羊绒衫</a></li>
+            <li><a href="">针织</a></li>
+            <li><a href="">连衣裙</a></li>
+            <li><a href="">皮外套</a></li>
+        </ul>
+
+        <h3 class="h3">男装</h3>
+        <hr>
+        <ul class="list">
+            <li><a href="">衬衫</a></li>
+            <li><a href="">T恤衫</a></li>
+            <li><a href="">夹克</a></li>
+            <li><a href="">大皮衣</a></li>
+            <li><a href="">风衣</a></li>
+            <li><a href="">牛仔裤</a></li>
+            <li><a href="">西服</a></li>
+            <li><a href="">卫衣</a></li>
+        </ul>
+        <h3 class="h3">鞋包配饰</h3>
+        <hr>
+        <ul class="list">
+            <li><a href="">围巾</a></li>
+            <li><a href="">旅行箱</a></li>
+            <li><a href="">真皮包</a></li>
+            <li><a href="">韩版</a></li>
+            <li><a href="">达芙妮</a></li>
+            <li><a href="">单肩包</a></li>
+            <li><a href="">毛线</a></li>
+            <li><a href="">清仓皮靴</a></li>
+        </ul>
+       <div id="right">
+           <div id="top">
+               <div id="img">
+                   <ul id="ul1">
+                       <li><img style="z-index: 1" src="images/ads/1.jpg" alt=""></li>
+                       <li><img src="images/ads/2.jpg" alt=""></li>
+                       <li><img src="images/ads/3.jpg" alt=""></li>
+                       <li><img src="images/ads/4.jpg" alt=""></li>
+                       <li><img src="images/ads/5.jpg" alt=""></li>
+                   </ul>
+                   <ul id="ul2" >
+                       <li class="selected"><a >相约情人节</a></li>
+                       <li><a >新款上线</a></li>
+                       <li><a >愤怒小鸟特卖</a></li>
+                       <li><a >男鞋促销</a></li>
+                       <li><a >春季新品促销</a></li>
+                   </ul>
+               </div>
+               <div id="top_right">
+                   <div id="top_right_top" class="top_right_top">
+                       <img src="images/upload/20120216.jpg" alt="">
+                   </div>
+                   <div id="top_right_bottom">
+                       <h2>最新动态</h2>
+                       <hr>
+                       <ul id="huodong">
+                           <li><a href="">[活动] 伊伴春鞋迎春大促</a></li>
+                           <li><a href="">[活动] 千百度冬靴新品火热让利</a></li>
+                           <li><a href="">[活动] COEY秋冬新品全场2.3折起</a></li>
+                           <li><a href=""> [活动] 伊伴春鞋迎春大促</a></li>
+                           <li><a href="">[活动] COEY秋冬新品全场2.3折起</a></li>
+
+                       </ul>
+
+                   </div>
+               </div>
+           </div>
+           <div id="bottom">
+                <div id="bottom-top">
+                    <h2>品牌活动</h2>
+                    <hr color="grey" size="1px">
+                    <ul id="ul3">
+                        <li><a href="">运动</a></li>
+                        <li><a href="">男鞋</a></li>
+                        <li><a href="">女鞋</a></li>
+                        <li><a href="">童鞋</a></li>
+                    </ul>
+                </div>
+               <div id="bottom-bottom">
+                        <ul id="ul4">
+                   <li><img src="images/upload/20120217.jpg" alt="">
+                       <span class="span">耐克</span>
+                   </li>
+                   <li><img src="images/upload/20120218.jpg" alt="">
+                       <span class="span">阿迪达斯</span>
+                   </li>
+                   <li><img src="images/upload/20120219.png" alt="">
+                       <span class="span">李宁</span>
+                   </li>
+                   <li><img src="images/upload/20120220.png" alt="">
+                       <span class="span">安踏</span>
+                   </li>
+                       </ul>
+               </div>
+
+           </div>
+       </div>
+    </div>
+</div>
+<div id="footer">Copyright © 2009 - 2012 JaneShop Inc.</div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+//    var oDiv=document.getElementById('top_right_top');
+//    var aImg=oDiv.getElementsByTagName('img');
+//    oDiv.onmouseover=function () {
+//    this.style.WebkitTransform='rotateZ('+360+'deg)';
+//    };
+</script>
+<script>
+
+    $(function () {
+        var $tab=$('#ul2 li');
+        var idx=0;//$tab.index($tab.filter('.selected'));
+        $('#ul2 li').click(function (e) {
+           $(this).addClass('selected').siblings().removeClass('selected');
+            $('#ul1 li').eq($(this).index()).show().siblings().hide();
+            idx = $(this).index();
+            console.log(idx);
+        });
+
+
+        function change() {
+            var timer=-1;
+            this.start=function () {
+               // var idx=$tab.index($tab.filter('.selected'));
+                timer=setInterval(function () {
+                    idx++;
+                    if(idx==$tab.length){idx=0;}
+                    $($tab[idx]).trigger('click');
+                },1000);
+            };
+            this.stop=function () {
+                clearInterval(timer);
+            }
+        }
+        var newChange=new change();
+        newChange.start();
+        $('#img').hover(function () {
+            newChange.stop();
+        },function () {
+            newChange.start();
+        });
+    })
+</script>
+</html>
