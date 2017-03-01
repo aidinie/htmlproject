@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#header ul{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#header li{
+    text-align: center;
+    display: inline-block;
+    width: 8%;
+    height: 100%;
+  }
+#header li a{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#header li a{
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+}
+
+#container{
+    height: 100%;
+    width: 100%;
+}
+#header{
+    height: 50px;
+    width: 100%;
+    background-color: black;
+}
+#bigImg{
+    background-image:url("big/iphone_alt_large.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 62%;
+    /*height: 500px;*/
+}
+.single{
+    display: none;
+}
+@media(max-width: 767px) {
+    #container{
+        width: 100%;
+        margin: 0 auto;
+    }
+   #header ul li{
+       display: none;
+   }
+   #header .single{
+       display: inline-block;
+       font-size: 25px;
+       text-decoration: none;
+       background-color: #000;
+       color: #fff;
+       padding: 7px 10px;
+       position: absolute;
+   }
+   #header .open{
+       left: 5px;
+       top: 5px;
+   }
+   #header .apple{
+       left: 50%;
+       top: 5px;
+   }
+   #header .lock{
+       right: 5px;
+       top: 5px;
+   }
+   /*#nav:target{*/
+       /*height: 100%;*/
+       /*width: 100%;*/
+       /*position: absolute;*/
+   /*}*/
+   #nav:target .block{
+       display: block;
+       width: 100%;
+       height: 30px;
+       background: black;
+       padding-top: 30px;
+
+   }
+   #nav:target li a{
+       text-align: left;
+   }
+   #nav:target .close{
+       display: block;
+       left: 5px;
+       top: 5px;
+   }
+   #header .close{
+       display: none;
+   }
+
+
+}
