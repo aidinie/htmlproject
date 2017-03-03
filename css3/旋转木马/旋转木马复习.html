@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转木马复习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #state{
+            width: 1000px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+            background-color: gray;
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: 50% -10%;
+        }
+        #container{
+            width: 128px;
+            height: 100px;
+            position: absolute;
+            left: 50%;
+            margin-left: -64px;
+            top:50%;
+            margin-top: -50px;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: transform 1s ease;
+
+        }
+        #container img{
+            width: 128px;
+            height: 100px;
+            position: absolute;
+            -webkit-transition: transform 1s ease;
+
+        }
+    </style>
+</head>
+<body>
+<div id="state">
+    <div id="container">
+        <!--<img src="img/1.jpg" alt="">-->
+        <!--<img src="img/2.jpg" alt="">-->
+        <!--<img src="img/3.jpg" alt="">-->
+        <!--<img src="img/4.jpg" alt="">-->
+        <!--<img src="img/5.jpg" alt="">-->
+        <!--<img src="img/6.jpg" alt="">-->
+        <!--<img src="img/7.jpg" alt="">-->
+        <!--<img src="img/8.jpg" alt="">-->
+        <!--<img src="img/9.jpg" alt="">-->
+    </div>
+</div>
+<script>
+    var oContainer=document.getElementById("container");
+
+//    for(var i=0;i<aImg.length;i++){
+//        //aImg[i].style.transition=(9-i)*200+"ms";
+//        aImg[i].style.WebkitTransform="rotateY("+-i*40+"deg) translateZ("+dis+"px)";
+//
+//    }
+    var aa=0;
+    for(var i=0;i<9;i++){
+        var oImg=new Image();
+        oImg.onload=function () {
+            aa++;
+            if(aa==9){
+                for(var i=0;i<aImg.length;i++){
+                    (function (index) {
+                        setTimeout(function () {
+                            aImg[index].style.WebkitTransform="rotateY("+-index*40+"deg) translateZ("+dis+"px)";
+
+                        },(9-i)*100)
+
+                    })(i)
+                }
+            }
+        };
+
+        oImg.src="img/"+(i+1)+".jpg";
+        oContainer.appendChild(oImg);
+        var aImg=oContainer.getElementsByTagName("img");
+        console.log(aImg.length);
+        var dis=aImg[0].offsetWidth/2/Math.tan(20*Math.PI/180)+20;
+    }
+    var a=0;
+    oContainer.onclick=function () {
+       a++;
+       this.style.WebkitTransform="rotateY("+-a*40+"deg)";
+    };
+
+</script>
+</body>
+</html>
