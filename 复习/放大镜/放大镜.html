@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            height: 400px;
+            width: 400px;
+            position: relative;
+            float: left;
+        }
+        #drag{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: red;
+            opacity: 0.5;
+            filter: alpha(opacity:50);
+            display: none;
+        }
+        #div2{
+            height: 400px;
+            width: 400px;
+            position: relative;
+            float: left;
+            display: none;
+            overflow: hidden;
+        }
+        #bigPic{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            background-color: green;
+            opacity: 0;
+            filter: alpha(opacity:0);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <img src="../../放大镜/1.jpg">
+    <div id="drag"></div>
+    <div id="mask"></div>
+</div>
+<div id="div2">
+    <div id="bigPic">
+        <img src="../../放大镜/2.jpg" >
+    </div>
+</div>
+<script>
+    var oDrag=document.getElementById("drag");
+    var oDiv1=document.getElementById("div1");
+    var oDiv2=document.getElementById("div2");
+    var oBigpic=document.getElementById("bigPic");
+    var oMask=document.getElementById("mask");
+    oMask.onmouseover=function(){
+        oDrag.style.display="block";
+        oDiv2.style.display="block";
+    };
+    oMask.onmousemove=function(e){
+        e=e||window.event;
+
+        var left= e.clientX-oDrag.offsetWidth/2;
+        var top= e.clientY-oDrag.offsetHeight/2;
+        var lMax=oDiv1.offsetWidth-oDrag.offsetWidth;
+        var tMax=oDiv1.offsetHeight-oDrag.offsetHeight;
+        if(left<0){
+            left=0;
+        }
+        if(top<0){
+            top=0;
+        }
+        if(left>lMax){
+            left=lMax;
+        }
+        if(top >tMax){
+            top =tMax;
+        }
+        oDrag.style.left=left +"px";
+        oDrag.style.top=top +"px";
+        var bX=left/lMax;
+        var bY=top/tMax;
+        oBigpic.style.left=-(oBigpic.offsetWidth-oDiv2.offsetWidth) *bX +"px";
+        oBigpic.style.top =-(oBigpic.offsetHeight-oDiv2.offsetHeight) *bY +"px";
+    }
+    oMask.onmouseout=function(){
+        oDrag.style.display="none";
+        oDiv2.style.display="none";
+    }
+</script>
+</body>
+</html>
