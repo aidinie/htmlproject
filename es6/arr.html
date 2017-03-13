@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+</ul>
+    <script>
+
+        //Array.from()
+//        var aLi = document.getElementsByTagName('li');
+//        var set = new Set([2,3,4,5]);
+        //console.log(aLi);
+//        var obj = {
+//            2:"a",
+//            5:"b",
+//            length:3
+//        }
+//        var arr = Array.from(obj);
+//        console.log(arr);
+
+
+//        var arr = [1,2,4,5,4];
+//        var arr = new Array(1,2,3,4);
+//        var arr = [3];
+//        var arr = new Array(3);
+//        var arr = Array.of(3);
+//        console.log(arr);
+
+        var arr = [1,2,3,4,5,6,7,8,9,0];
+//        [1, 5, 3, 4, 5, 6, 7, 8, 9, 0]
+//          [1, 5, 6, 4, 5, 6, 7, 8, 9, 0]
+
+        //copyWithin()
+        //1,被替换起始位置，2，copy的起始位置，3，copy的结束位置
+//        arr.copyWithin(1,4,6);
+//        arr.fill(10,4,5);
+
+        var num = arr.findIndex(function(value,index){
+            var a = value+2;
+            return index < a;
+        });
+
+        console.log(num);
+
+
+
+    </script>
+</body>
+</html>
