@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="ul1">
+        <li class="aa bb">432432</li>
+        <div class="aa"></div>
+        <li>31432</li>
+        <li class="aa">432432</li>
+    </ul>
+    <script>
+
+//        var ali = document.getElementsByClassName("aa");
+        var oUl = document.getElementById("ul1");
+        var ali = getClass("aa");
+        for(var i=0;i<ali.length;i++){
+            ali[i].style.background='red';
+        }
+
+        function getClass(clsName,context,tagName){
+            var result = [];
+            context = context || document;
+            tagName = tagName || "*";
+            if(context.getElementsByClassName){
+                return context.getElementsByClassName(clsName);
+            }
+            var aLi = context.getElementsByTagName(tagName);
+            var reg = new RegExp("\\b"+clsName+"\\b");
+            for(var i=0;i<aLi.length;i++){
+                if(reg.test(aLi[i].className)){
+                    result.push(aLi[i]);
+                }
+            }
+            return result;
+
+        }
+
+
+
+
+
+
+
+////        var reg = /((?!abc)\w)+/;
+////            var reg = /^(abc)/;
+////        var ss = "abc";
+////        var reg = /ss/;
+////        var reg = new RegExp(ss);
+//        var str = "abcd";
+//
+//        console.log(reg.exec(str));
+//
+
+
+    </script>
+</body>
+</html>

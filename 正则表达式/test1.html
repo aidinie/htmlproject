@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+//        var str = "";
+//        if(!/\D/g.test(str)){
+//            console.log("是数字");
+//        }else{
+//            console.log("不是数字");
+//        }
+
+//        if(/^\d+$/.test(str)){
+//            console.log("是数字");
+//        }else{
+//            console.log("不是数字");
+//        }
+
+    var str = "infomarket.php?id=197";
+    var reg = /^\w*/ig;
+    //匹配字符串开头的任意个单词字符
+    str = str.replace(reg,'test');
+    console.log(str);
+
+    </script>
+</body>
+</html>
