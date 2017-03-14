@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+}
+ul{
+    list-style: none;
+}
+#container li{
+    margin: 0 2px 2px 0;
+    float: left;
+}
+#container li:nth-child(4n){
+    margin-right: 0;
+}
+#container li img{
+    width: 100%;
+    height: 100%;
+}
+#img-show{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
