@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="change">click</button>
+    <div class="show" :class="{hide:isShow}"></div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            isShow:false,
+        },
+        methods:{
+            change:function () {
+                this.isShow=!this.isShow
+            }
+        }
+    })
+</script>
+</body>
+</html>
