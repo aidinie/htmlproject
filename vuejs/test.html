@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="people.name">
+    <div @click="fn">
+        <!--@click=v-click-->
+        {{people.name}}
+    </div>
+
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            msg:"aaa",
+            people:{
+                name:"jshj",
+            }
+        },
+        methods:{
+            fn:function () {
+                alert('11111');
+            }
+        }
+
+    });
+//    vm.fn();
+</script>
+</body>
+</html>
