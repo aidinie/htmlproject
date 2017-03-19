@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            height: 100px;
+            width: 300px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ <div id="app">
+     是否需要额外付费设施：<input type="checkbox" v-model="sel"><br>
+     <div id="div1" class="show" :class="{hide:!sel}">
+         床(100):<input type="checkbox" v-model="add" value="100">
+         沙发(200):<input type="checkbox" v-model="add" value="200">
+         WIFI(300):<input type="checkbox" v-model="add" value="300"><br>
+
+
+     </div>
+     总金额：{{total()}}
+
+
+
+ </div>
+ <script src="vue.js"></script>
+ <script>
+   var vm=new Vue({
+       el:"#app",
+
+       data:{
+           sel:true,
+          add:[],
+
+       },
+       methods:{
+           total:function () {
+               var a=0;
+
+//               this.add.forEach(function(val){
+//                   a=a+parseInt(val);
+//               });
+               for(var i=0;i<this.add.length;i++){
+                   a=a+parseInt(this.add[i]);
+               }
+               return a;
+           }
+       }
+
+   })
+
+ </script>
+</body>
+</html>
