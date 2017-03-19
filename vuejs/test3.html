@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="name">
+    <input type="text" v-model="age">
+
+    <button @click="add">点击</button>
+    <ul>
+        <li v-for="(val,index) in dataList">{{val.name}},{{val.age}}
+        <button @click="del(index)">删除</button></li>
+    </ul>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            age:'',
+            dataList:[],
+        },
+        methods:{
+            add:function () {
+               this.dataList.push({name:this.name,age:this.age})
+            },
+            del:function (index) {
+                this.dataList.splice(index,1);
+            }
+        }
+    })
+</script>
+</body>
+</html>
