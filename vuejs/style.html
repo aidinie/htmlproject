@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .font{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<div :id="msg"></div>-->
+    <!--<div class='font' :class="{red:isRed}">ssssssss</div>-->
+    <!--<div :class="classObj">ssssssss</div>-->
+    <!--<div :class="[classA,classB]">ssssssss</div>-->
+
+    <!--<div :style="{color:colorStyle,'font-size':sizeStyle}">ssssssss</div>-->
+    <div :style="style">ssssssss</div>
+    <div :style="[styleA,styleB]">ssssssss</div>
+
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+//            msg:'red',
+            styleA:{
+                color:'blue'
+            },
+            styleB:{
+                'font-size':"40px"
+            },
+            colorStyle:'blue',
+            sizeStyle:'40px',
+            style:{
+                color:'red',
+                'font-size':"40px"
+            },
+            isRed:true,
+            isFont:true,
+            classObj:{
+                red:true
+            },
+            classA:"red",
+            classB:"font"
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
