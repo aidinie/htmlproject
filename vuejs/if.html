@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+
+    <!--<div v-if="show">-->
+        <!--sssss-->
+    <!--</div>-->
+    <!--<div v-else-if>-->
+        <!--ccccc-->
+    <!--</div>-->
+    <!--<div v-else>-->
+        <!--bbbbb-->
+    <!--</div>-->
+
+    <div v-if="show">
+        sssss
+    </div>
+    <div v-else>
+        bbbbbb
+    </div>
+
+    <!--<div v-if="show">-->
+        <!--bbbb-->
+    <!--</div>-->
+
+
+
+
+</div>
+<script src="vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            show:false
+        }
+    });
+
+
+</script>
+</body>
+</html>
