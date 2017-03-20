@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="text"/>
+    <select name="" v-model="sele">
+        <option value="aa">111</option>
+        <option value="bb">222</option>
+        <option value="cc">333</option>
+    </select>
+    <input type="checkbox" name="name" v-model="aa" value="11"/>
+    <input type="checkbox" name="name" v-model="aa" value="22"/>
+    <input type="checkbox" name="name" v-model="aa" value="33"/>
+    <!--<input type="checkbox" name="name" v-model="check" value="44"/>-->
+
+    <!--<input type="radio" name="sex" v-model="rad" value="m"/>男-->
+    <!--<input type="radio" name="sex" v-model="rad" value="f"/>女-->
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            text:'test1',
+            sele:'',
+            aa:[],
+            rad:"男"
+        }
+    });
+</script>
+</body>
+</html>
