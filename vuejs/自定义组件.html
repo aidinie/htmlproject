@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="app">
+    <!--<demo msg="aaa" msg-a="bbbbb"></demo>-->
+    <demo :msg="aaa" :msg-a="bbb"></demo>
+    <demo1></demo1>
+</div>
+<body>
+<script src="vue.js"></script>
+<script>
+//    全局
+//    Vue.component('demo',{
+//            template:"<div>ssssss</div>",
+//    });
+//    new Vue({
+//        el:"#app",
+//    })
+//    局部
+    new Vue({
+        el:"#app",
+        data:{
+             aaa:'demo',
+             bbb:'demo1'
+        },
+        components:{
+            demo:{
+                template:'<div>{{msg}},{{msgA}}</div>',
+                props:['msg','msgA']
+            },
+            demo1: {
+                template:'<div>bbbbbbbbb</div> '
+            }
+        }
+    })
+</script>
+</body>
+</html>
