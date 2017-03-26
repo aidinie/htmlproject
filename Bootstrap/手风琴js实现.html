@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        body{
+            padding: 100px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#part1,#part2,#part3,#part4").collapse({
+                parent:"#accordion",
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#part1" data-toggle="collapse" >点击关闭，再次点击打开</a>
+            </h4>
+
+        </div>
+        <div id="part1" class="panel-collapse collapse in">
+            <div class="panel-body">
+                第一部分内容
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#part2" data-toggle="collapse" >点击关闭，再次点击打开</a>
+            </h4>
+
+        </div>
+        <div id="part2" class="panel-collapse collapse in">
+            <div class="panel-body">
+                第二部分内容
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#part3" data-toggle="collapse">点击关闭，再次点击打开</a>
+            </h4>
+
+        </div>
+        <div id="part3" class="panel-collapse collapse in">
+            <div class="panel-body">
+                第三部分内容
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#part4" data-toggle="collapse" >点击关闭，再次点击打开</a>
+            </h4>
+
+        </div>
+        <div id="part4" class="panel-collapse collapse in">
+            <div class="panel-body">
+                第四部分内容
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
