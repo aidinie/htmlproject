@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body{
+            padding: 100px;
+        }
+        /*.modal{*/
+        /*display: block;*/
+        /*}*/
+    </style>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $('#btn').on('click',function () {
+                $('#modal').modal('show');
+            })
+        })
+    </script>
+</head>
+<body>
+
+<h3>创建模态框</h3>
+<button class="btn btn-primary" data-toggle="modal" id="btn">创建模态框</button>
+<div class="modal fade" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-title">模态框标题</div>
+            </div>
+            <div class="modal-body">
+                模态框内容模态框内容模态框内容模态框内容模态框内容模态框内容模态框内容
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" >确定</button>
+                <button class="btn btn-warning" data-dismiss="modal">取消</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
