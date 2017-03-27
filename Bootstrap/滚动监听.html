@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="navbar navbar-default" id="tab1">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">Web编程</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#html">html</a></li>
+                    <li><a href="#css">css</a></li>
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            javascript
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#jQuery">jQuery</a></li>
+                            <li><a href="#ext">ext js</a></li>
+                            <li><a href="#prototype">prototype js</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-spy="scroll" data-target="#tab1" data-offset="0" class="row col-md-6 col-md-offset-3" style="height: 200px;
+overflow: auto;position: relative;padding: 0 10px" >
+        <h3 id="html">html</h3>
+        <p>
+            超文本标记语言，标准通用标记语言下的一个应用。 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。 超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。
+        </p>
+        <h3 id="css">css</h3>
+        <p>
+            css是英文Cascading Style Sheets的缩写。
+            它是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。
+        </p>
+        <h3 id="jQuery">jQuery</h3>
+        <p>
+            jQuery是一套跨浏览器的JavaScript库，简化HTML与JavaScript之间的操作。由John Resig在2006年1月的BarCamp NYC上发布第一个版本。目前是由 Dave Methvin 领导的开发团队进行开发。全球前10000个访问最高的网站中，有59%使用了jQuery，是目前最受欢迎的JavaScript库。
+        </p>
+        <h3 id="ext">ext js</h3>
+        <p>
+            自动生成行号，支持checkbox全选，动态选择显示哪些列，支持本地以及远程分页，可以对单元格按照自己的想法进行渲染，这些也算可以想到的功能。
+        </p>
+        <h3 id="prototype">prototype js</h3>
+        <p>
+            prototype.js 是Sam Stephenson写的一个非常优雅的javascript基础类库，对javascript做了大量的扩展，而且很好的支持Ajax，国内外有多个基于此类库实现的效果库，也做得很棒。
+
+            prototype.js不仅是一个有很大实用价值的js库，而且有很高的学习价值。
+        </p>
+    </div>
+</div>
+</body>
+</html>
