@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        body{
+            padding: 200px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#nav a').on('click',function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+            $('#nav a').on('show.bs.tab',function () {
+               alert('show之前弹出');
+            });
+            $('#nav a').on('shown.bs.tab',function () {
+                alert('show之后弹出');
+            });
+        })
+    </script>
+</head>
+<body>
+<ul id="nav" class="nav nav-tabs">
+    <li class="active"><a href="#html" >html</a></li>
+    <li><a href="#css" >css</a></li>
+    <li><a href="#jquery" >jquery</a></li>
+    <li><a href="#ext" >ext js</a></li>
+</ul>
+<div class="tab-content" style="padding: 20px">
+    <p id="html" class="tab-pane active fade in" >
+        超文本标记语言，标准通用标记语言下的一个应用。 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。 超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。
+    </p>
+    <p id="css" class="tab-pane fade">
+        css是英文Cascading Style Sheets的缩写。
+        它是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。
+    </p>
+
+    <p id="jquery" class="tab-pane fade">
+        jQuery是一套跨浏览器的JavaScript库，简化HTML与JavaScript之间的操作。由John Resig在2006年1月的BarCamp NYC上发布第一个版本。目前是由 Dave Methvin 领导的开发团队进行开发。全球前10000个访问最高的网站中，有59%使用了jQuery，是目前最受欢迎的JavaScript库。
+    </p>
+
+    <p id="ext" class="tab-pane fade">
+        自动生成行号，支持checkbox全选，动态选择显示哪些列，支持本地以及远程分页，可以对单元格按照自己的想法进行渲染，这些也算可以想到的功能。
+    </p>
+</div>
+</body>
+</html>
