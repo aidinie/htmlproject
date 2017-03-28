@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        #slide{
+            width: 680px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel slide" id="slide" >
+    <ol class="carousel-indicators">
+        <li class="active" data-target="#slide" data-slide-to="0"></li>
+        <li data-target="#slide" data-slide-to="1"></li>
+        <li data-target="#slide" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner ">
+        <div class="item active">
+            <img src="img/3.jpg" alt="">
+            <div class="carousel-caption">
+                <h3>图片说明</h3>
+                <p>图片一</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/2.jpg" alt="">
+            <div class="carousel-caption">
+                <h3>图片说明</h3>
+                <p>图片二</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img/1.jpg" alt="">
+            <div class="carousel-caption">
+                <h3>图片说明</h3>
+                <p>图片三</p>
+            </div>
+        </div>
+    </div>
+    <a href="" class="carousel-control left" data-target="#slide" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">&lt;</span></a>
+    <a href="" class="carousel-control right" data-target="#slide" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">&gt;</span></a>
+    </a>
+    <div style="text-align: center">
+        <input type="button" class="btn start-slide" value="开始">
+        <input type="button" class="btn stop-slide" value="停止">
+        <input type="button" class="btn prev-slide" value="上一张">
+        <input type="button" class="btn next-slide" value="下一张">
+        <input type="button" class="btn first-slide" value="第一张">
+        <input type="button" class="btn second-slide" value="第二张">
+        <input type="button" class="btn third-slide" value="第三张">
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.start-slide').click(function () {
+            $('#slide').carousel({
+                interval:1000,
+            })
+        });
+        $('.stop-slide').click(function () {
+            $('#slide').carousel('pause')
+        });
+        $('.prev-slide').click(function () {
+            $('#slide').carousel('prev')
+        });
+        $('.first-slide').click(function () {
+            $('#slide').carousel(0)
+        });
+        $('.second-slide').click(function () {
+            $('#slide').carousel(1)
+        });
+        $('.third-slide').click(function () {
+            $('#slide').carousel(2)
+        });
+        $('.next-slide').click(function () {
+            $('#slide').carousel('next')
+        });
+    })
+</script>
+</body>
+</html>
