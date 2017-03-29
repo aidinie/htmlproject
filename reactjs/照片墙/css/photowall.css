@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    border: 0;
+}
+body, html,#photoWall, .stage{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#photoWall{
+    background-color: #ccc ;
+}
+.stage{
+    position: relative;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    perspective: 800px;
+}
+.img-figure{
+    width: 320px;
+    height: 360px;
+    background: #ffffff;
+    text-align: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+.img-figure h2{
+    margin-top: 20px;
+}
+.img-figure figcaption div{
+    width: 320px;
+    height: 360px;
+    background: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+    -moz-backface-visibility:hidden; 	/* Firefox */
+    -ms-backface-visibility:hidden; 	/* Internet Explorer */
+    line-height: 360px;
+}
+.ctrl{
+    width: 30px;
+    height: 30px;
+    background: #000000;
+    border-radius: 50%;
+    float: left;
+    cursor: pointer;
+    transform: scale(.7);
+    transition: all .5s ease-in-out;
+}
+.nav{
+    vertical-align: middle;
+}
+.stage nav{
+    width: 480px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -240px;
+
+    /*transform: translate(-50%, -50%);*/
+}
+.is-center{
+    transform: scale(1);
+    text-align: center;
+}
+.is-center::after{
+    content: "\e600";
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-family: 'turn-arrow';
+
+}
+@font-face {
+    font-family: 'turn-arrow';
+    src: url('../font/icon/turn-arrow.eot'); /* IE9+ */
+    src: url('../font/icon/turn-arrow.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/icon/turn-arrow.woff') format('woff'), /* chrome、firefox */
+    url('../font/icon/turn-arrow.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/icon/turn-arrow.svg#fontname') format('svg'); /* iOS 4.1- */
+}
+.is-inverse{
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
