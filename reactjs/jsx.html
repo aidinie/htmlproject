@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="browser.js"></script>
+<!-- JSXTransform.js -->
+<script type="text/babel">
+    ReactDOM.render(
+            <h1>标题
+                <div> 内容</div>
+            </h1>,
+        document.getElementById('container')
+    )
+</script>
+
+</body>
+</html>
