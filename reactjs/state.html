@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="browser.js"></script>
+
+<script type="text/babel">
+  var Count=React.createClass({
+      getInitialState: function () {
+          return {
+              count:0,
+          }
+      },
+
+      handleClick:function (e) {
+          this.setState({
+              count:this.state.count+1,
+          })
+      },
+
+      render:function () {
+          return(
+              <div>
+                  <button onClick={this.handleClick}> 点击</button>
+                  <h1>{this.state.count}</h1>
+              </div>
+          );
+      },
+
+
+  });
+
+    ReactDOM.render(
+        <Count/>,
+        document.getElementById("container")
+    );
+</script>
+
+
+
+</body>
+</html>
