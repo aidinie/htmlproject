@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aa{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script>
+    ReactDOM.render(
+        React.createElement('div',{className:'aa'},'helloWord',
+        React.createElement('div',null,'div1')
+        ),
+
+        document.getElementById('container')
+    );
+
+</script>
+</body>
+</html>
