@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="browser.js"></script>
+<script type="text/babel">
+    var Company=React.createClass({
+        getDefaultProps :function () {
+            return{
+                arr:[]
+            }
+        },
+        handleChange:function (e) {
+          this.props.change(e.target.checked);
+        },
+        render:function () {
+
+            var arr=[];
+            this.props.companyArr.forEach(function (value,index) {
+                arr.push(<label key={index}>{value}<input type="checkbox" onChange ={this.handleChange}/></label>)
+            }.bind(this));
+            return(
+                    <div>{arr}</div>
+            )
+        },
+
+    });
+    var Component=React.createClass({
+        getInitialState: function () {
+            return {
+                count:0,
+            }
+        },
+        change:function (checked) {
+          this.setState(
+              {
+                  count:checked?this.state.count+1:this.state.count-1
+              }
+          )
+
+
+        },
+        render:function () {
+            var companyArr=["百度","阿里","腾讯"];
+            return(
+                <div>
+                    <h1>你一共选择了{this.state.count}个公司</h1>
+                    <Company companyArr={companyArr} change={this.change}/>
+                </div>
+            )
+        }
+    }) ;
+    ReactDOM.render(
+        <Component/>,
+        document.getElementById("container")
+    )
+</script>
+</body>
+</html>
