@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="browser.js"></script>
+<script src="PubSub.js"></script>
+<script type="text/babel">
+    var Component=React.createClass({
+        handleChange:function (e) {
+            PubSub.publish("xx",{
+                val:e.target.value
+            })
+        },
+        render:function () {
+
+            return(
+                    <select name="" id="" onChange={this.handleChange}>
+                        <option>黑大</option>
+                        <option>理工</option>
+                        <option>林大</option>
+                    </select>
+            )
+        }
+    });
+    var Component2=React.createClass({
+        getInitialState:function () {
+          return({
+              school:''
+          })
+        },
+        componentWillMount:function(){
+            PubSub.subscribe("xx",function (msg,data) {
+                this.setState({
+                    school:data.val
+                })
+            }.bind(this))
+        },
+        render:function () {
+            return(
+                <h1>{this.state.school}</h1>
+            )
+        }
+    }) ;
+    ReactDOM.render(
+        <div>
+            <Component/>
+            <Component2/>
+        </div>,
+        document.getElementById("container")
+    );
+</script>
+
+</body>
+</html>
