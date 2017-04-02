@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="browser.js"></script>
+
+<script type="text/babel">
+     var Msg=React.createClass({
+         render:function () {
+             return(
+                 <div>
+                     <h1>这是标题</h1>
+                     <div>内容</div>
+                 </div>
+             );
+         }
+     });
+    ReactDOM.render(
+        <Msg/>,
+        document.getElementById('container')
+    )
+
+</script>
+
+</body>
+</html>
