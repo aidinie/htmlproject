@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+//        function Cat(){
+//            this.name = 'mimi';
+//        }
+//        Cat.prototype.eat = function(){
+//            ...
+//        }
+    class Cat{
+        constructor(name){
+            this.name = name;
+        }
+        eat(){
+           console.log(this.name);
+//            console.log("mimi");
+        }
+    }
+
+    class Mimi extends Cat{
+        constructor(name,age){
+            super(name);
+            this.age = age;
+            this.name = "aaaaa";
+        }
+    }
+
+    var mimi = new Mimi('aa',10);
+    mimi.eat();
+
+
+//        var mimi = new Cat('mimi');
+//        mimi.eat();
+//        Cat.eat();
+
+    </script>
+</body>
+</html>
