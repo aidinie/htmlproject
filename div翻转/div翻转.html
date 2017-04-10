@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            height: 450px;
+            width: 400px;
+            margin: 100px auto;
+            position: relative;
+            cursor: pointer;
+
+        }
+        #front{
+            height: 100%;
+            width: 100%;
+            background-color: #2b542c;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            -webkit-transition: transform .5s ease-in-out;
+
+        }
+        #front,#opposite{
+            backface-visibility:hidden;
+        }
+
+        #opposite{
+            height: 100%;
+            width: 100%;
+            background-color: #2aabd2;
+            position: absolute;
+            left: 0;
+            right: 0;
+            -webkit-transform: rotateY(180deg);
+            -webkit-transition: transform .5s ease-in-out;
+        }
+        #opposite p{
+            text-align: center;
+            font-size: 30px;
+            line-height: 450px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="front">
+        <img src="img/1.jpg" alt="">
+        <p>点击查看详情</p>
+    </div>
+    <div id="opposite">
+        <p>这是来自京东的一条裤子</p>
+    </div>
+</div>
+<script>
+    var oContainer=document.getElementById('container');
+    var oFront=document.getElementById('front');
+    var oOpposite=document.getElementById('opposite');
+    var isInverse=true;
+    oContainer.onclick=function () {
+
+//         oFront.style.webkitTransform='rotateY(180deg)';
+//         oOpposite.style.webkitTransform='rotateY(180deg)';
+
+        if(isInverse){
+            oFront.style.webkitTransform='rotateY(180deg)';
+            oOpposite.style.webkitTransform='rotateY(0deg)';
+        }else {
+            oOpposite.style.webkitTransform='rotateY(180deg)';
+            oFront.style.webkitTransform='rotateY(0deg)';
+        }
+        isInverse=! isInverse;
+
+    }
+</script>
+</body>
+</html>
