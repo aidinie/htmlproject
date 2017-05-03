@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组作为键、值
+    let  MapData=new Map([['WebName','资源库'],['url','www.baidu.com']]);
+    console.log(MapData.get('WebName'));
+    //对象作为键、值
+     var objKey1={};
+     var objKey2={};
+     MapData.set(objKey1,'222');
+     MapData.set(objKey2,'333');
+     console.log(MapData.get(objKey2));
+     //NaN可以最为键名，但之视为一个值
+    MapData.set(NaN,'not a number');
+
+     //1.遍历
+    MapData.forEach(function (value,key) {
+        console.log(key+'='+value);
+    });
+    //2.遍历(转化为数组遍历)
+  let arr=[...MapData];
+  console.log(arr);
+  //for..of 遍历
+    for(let elem of MapData){
+        console.log(elem);
+    }
+
+    //键遍历器
+    let keylterator=MapData.keys();
+    console.log(keylterator);
+    //值遍历器
+    let valuelterator=MapData.values();
+    console.log(valuelterator);
+    //遍历器取值
+    console.log(keylterator.next().value);
+    console.log(keylterator.next().value);
+    console.log(keylterator.next().value);
+    console.log(keylterator.next().value);
+    console.log(keylterator.next().value);
+    //键值对数量
+    var size=MapData.size;
+    console.log(size);
+
+</script>
+
+</body>
+</html>
