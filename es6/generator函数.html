@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function * gen() {
+        console.log("名称："+(yield "baidu"));
+        yield "www.baidu.com";
+    }
+    var fun=gen();
+    console.log(fun.next());
+    console.log(fun.next('注入的名称'));  //向next传值，这个值作为上一个yield的返回值
+    
+    function * count(num) {
+        let x=2*(yield num);
+        console.log("x="+x);
+        let y=yield x*3;
+        console.log("y="+y);
+    }
+    var count1=count(5);
+    console.log(count1.next());
+    console.log(count1.next(3));
+    console.log(count1.next(3));
+
+    //异步实现
+
+    let y;
+    var func=function (time) {
+        setTimeout(function () {
+            console.log(time,"on");
+            y.next(time);
+        },time)
+    };
+
+    var gen1=function *() {
+        var f1=yield func(3000);
+        console.log('f1',f1);
+        var f2=yield func(1000);
+        console.log('f2',f2);
+    };
+     y=gen1();
+     y.next();
+
+</script>
+</body>
+</html>
