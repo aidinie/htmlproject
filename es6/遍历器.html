@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr=['百度',4,'www.baidu.com','beijing'];
+    let it=arr[Symbol.iterator]();
+    //比正常for循环快数倍
+    for(;;){
+        let elem=it.next();
+        if (elem.done){
+            break;
+        }
+        console.log(elem.value);
+    }
+//    console.log(it.next());
+//    console.log(it.next());
+//    console.log(it.next());
+//    console.log(it.next());
+
+</script>
+</body>
+</html>
