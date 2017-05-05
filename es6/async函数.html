@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    let asyncFun1= async function () {
+//        console.log('aaaa');
+//        await Promise.reject('出错');
+//        return "asyncFun1";
+//    };
+//    let asyncFun2=async function (data) {  //与Promise相比可以直接传参；
+//        console.log('aaaa:'+data);
+//        return "asyncFun1";
+//    };
+//    asyncFun1().then(asyncFun2).catch(function (err) {
+//        console.log(err);
+//        if(err=='出错'){
+//            asyncFun2();
+//        }
+//    });
+
+
+//async对异步处理无效
+let asyncFun1= async function () {
+    setTimeout(function () {
+        console.log('aaaaaaa');
+    },3000);
+    return "asyncFun1";
+};
+let asyncFun2=async function (data) {  //与Promise相比可以直接传参；
+    setTimeout(function () {
+        console.log('bbbbb'+data);
+    },100);
+    return "asyncFun1";
+};
+asyncFun1().then(asyncFun2);
+
+</script>
+</body>
+</html>
