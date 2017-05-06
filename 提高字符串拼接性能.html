@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //+拼接字符串
+    var str='hello';
+    str+='word';
+    console.log(str);
+    var str = "Hello ";
+    str += "World";
+//    实际上，这段代码在幕后执行的步骤如下：
+//    1.创建存储"Hello"的字符串。
+//    2.创建存储"World"的字符串。
+//    3.创建存储连接结果的字符串。
+//    4.把str的当前内容复制到结果中。
+//    5.把"World"复制到结果中。
+//    6.更新str,使它指向结果。
+//    每次完成字符串的连接都会执行步骤2到6，使得这种操作非常消耗资源。
+    // 如果重复这一过程几百次，甚至几千次就会造成性能问题。
+
+    //1.利用数组
+    var arr=new Array();
+    arr[0]='hello';
+    arr[1]='wold';
+    arr[2]='welcome';
+    var str1=arr.join(' ');
+    console.log(str1);
+    //2.StringBuffer
+    function StringBuffer(){
+        this.__strings__ = new Array();
+    }
+    StringBuffer.prototype.append = function(str){
+        this.__strings__.push(str);
+    };
+    StringBuffer.prototype.toString = function(){
+        return this.__strings__.join("");
+    };
+    var buffer = new StringBuffer();
+    buffer.append("Hello ");
+    buffer.append("World");
+    var result = buffer.toString();
+    console.log(result);
+</script>
+</body>
+</html>
