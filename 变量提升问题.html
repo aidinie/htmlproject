@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    myname = "global";
+
+    function func (){
+
+        alert(myname);//未定义
+
+        var myname = "local";
+
+        alert(myname);//局部变量
+    }
+    func();
+
+    //上述函数执行如下所示：
+//    myname = "global";
+//
+//    function func (){
+//
+//        var myname;// 等同于 var myname = undefined;
+//
+//        alert(myname);//未定义
+//
+//        myname = "local";
+//
+//        alert(myname);//局部变量
+
+   // }
+</script>
+
+</body>
+</html>
