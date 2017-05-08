@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //不支持方法的重载
+//    class Person{
+//        constructor(name,age,job){
+//            this.name=name;
+//            this.age=age;
+//            this.job=job;
+//        }
+//        sayName(){
+//            console.log(this.name);
+//        }
+//    }
+//    let person1=new Person('张三',22,'老板');
+//    person1.sayName();
+//es6明确规定Class内部只有静态方法没有静态属性
+    //单例模式
+    class Cache{
+        constructor(){
+            this.id=123;
+            this.name='张三';
+        }
+        static getSingleTon(){
+            if(!Cache.thisa){
+                console.log('创建');
+                Cache.thisa=new Cache();
+            }
+            return Cache.thisa;
+        }
+    }
+    let c1=Cache.getSingleTon();
+    c1.name='aa';
+    let c2=Cache.getSingleTon();
+    let c3=Cache.getSingleTon();
+    console.log(c3.name);
+
+    //继承   可以方法重写
+    class Animal{
+        constructor(name){
+            this.name=name;
+        }
+        speak(){
+            console.log(this.name+"叫了一声");
+        }
+    }
+    class Dog extends Animal{
+        speak(){
+            console.log(this.name+"汪了一声");
+        }
+    }
+    let dog=new Dog('狗');
+    dog.speak();
+</script>
+</body>
+</html>
