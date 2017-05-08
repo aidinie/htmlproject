@@ -24,19 +24,43 @@
 
 
 //async对异步处理无效
-let asyncFun1= async function () {
-    setTimeout(function () {
-        console.log('aaaaaaa');
-    },3000);
-    return "asyncFun1";
+//let asyncFun1= async function () {
+//    setTimeout(function () {
+//        console.log('aaaaaaa');
+//    },3000);
+//    return "asyncFun1";
+//};
+//let asyncFun2=async function (data) {  //与Promise相比可以直接传参；
+//    setTimeout(function () {
+//        console.log('bbbbb'+data);
+//    },100);
+//    return "asyncFun1";
+//};
+//asyncFun1().then(asyncFun2);
+
+//执行异步借助promise函数
+    let asyncFunc1=async function () {
+        return new Promise(function (resolve,reject) {
+            setTimeout(function () {
+                console.log('aaaaaaa');
+                resolve(123);
+            },2000);
+        })
+    };
+let asyncFunc2=async function (data) {
+    return new Promise(function (resolve,reject) {
+        console.log(data);
+        setTimeout(function () {
+            console.log('bbbbbb');
+            resolve(345);
+        },1000);
+    })
 };
-let asyncFun2=async function (data) {  //与Promise相比可以直接传参；
-    setTimeout(function () {
-        console.log('bbbbb'+data);
-    },100);
-    return "asyncFun1";
-};
-asyncFun1().then(asyncFun2);
+asyncFunc1().then(asyncFunc2).then(function (data) {
+    console.log('最后数据:'+data);
+}).catch(function (err) {
+    console.log(err);
+})
 
 </script>
 </body>
