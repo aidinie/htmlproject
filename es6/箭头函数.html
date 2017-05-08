@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //有函数返回值
+//    let fun1=function (a,b) {
+//        return a+b;
+//    };
+    let fun1=(a,b)=>a+b;
+    console.log(fun1(3,5));
+    //无函数返回值
+//    let fun2=function (a,b) {
+//        console.log(a+b);
+//    };
+    let fun2=(a,b)=>{console.log(a+b)};
+    fun2(3,9);
+    //箭头函数中的this关键字，指向的是定义时的对象，而不是使用时的对象。
+    // 即，虽然在以往的函数中，this所指的对象只有在调用的时候才知道是谁，但是在箭头函数中，
+    // 它是固定不变的。
+//    var obj={
+    //        x:110,
+    //        func:function () {
+    //            console.log(this.x);
+    //        },
+    //        test:function () {
+    //            setTimeout(function () {
+    //                alert(this);//指针转移
+    //                this.func();
+    //            },1000)
+    //        }
+    //    };
+    //    obj.func();
+    //    obj.test();
+    var obj={
+        x:120,
+        func:function () {
+            console.log(this.x);
+        },
+        test:function () {
+            setTimeout(()=>{alert(this),this.func()},1000)
+        }
+    };
+    obj.test();
+</script>
+</body>
+</html>
