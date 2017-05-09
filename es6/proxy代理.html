@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Reg{};
+    let r=new Reg();
+    let p=new Proxy(r,{
+        get:function (target,key) {
+//            console.log('调用get方法');
+            return target[key];
+        },
+        set:function (target,key,value) {
+            console.log('调用set方法');
+            if(key=='id'){
+                if(value==15){
+                    target['prefix']=',此人是逃犯';
+
+                }else {
+                    target['prefix']='';
+                }
+            }
+            if(key=='name'){
+                value=value+target['prefix'];
+
+            }
+            target[key]=value;
+            return Reflect.set(target,key,value);
+        }
+    });
+    p.id=2;
+    p.name='张三';
+
+    console.log(p.name);
+    p.id=15;
+    p.name='lisi';
+    console.log(p.name);
+</script>
+</body>
+</html>
