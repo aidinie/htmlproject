@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset{
+            width: 230px;
+            margin: 100px auto;
+        }
+        #demo{
+            position: relative;
+        }
+        #msg{
+            position: absolute;
+            left: 0;
+            top: 25px;
+            background-color: yellow;
+            font-size: 12px;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<fieldset>
+    <form action="">
+        <p>邮箱: <input type="text"></p>
+        <p>密码: <input type="password"></p>
+        <p id="demo"  v-on:mouseenter="visible" @mouseleave="invisible"><input type="checkbox" id="cbx"> <label for="cbx" >十天免登录</label>
+        <span id="msg" v-show="sree">为了您的安全请不要在网吧等公共场合使用此功能!</span>
+        </p>
+        <p><input type="button" value="登录"> <input type="button" value="去注册"></p>
+    </form>
+</fieldset>
+<script>
+    var app=new Vue({
+        el:'#demo',
+        data:{
+            sree:false,
+        },
+        methods:{
+            visible:function () {
+                this.sree=true
+            },
+            invisible:function () {
+                this.sree=false
+            }
+        }
+    })
+</script>
+</body>
+</html>
